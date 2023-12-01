@@ -1,0 +1,70 @@
+{
+  "version": "2.0.2",
+  "files": [
+    {
+      "path": "docs/index.md",
+      "deps": null,
+      "modified": "2023-12-01T11:41:58.396175",
+      "hexdigest": "e37505ac8b65f4dbcff54b75b4320cb7f4d84b52e05c971f8767aa68f87d9148",
+      "size": 1031
+    },
+    {
+      "path": ".entangled/tasks.json",
+      "deps": [],
+      "modified": "2023-12-01T11:31:07.170775",
+      "hexdigest": "7bb9de66306158195a10e724e13fbcd2d067c37706b4f1bc3f615737edc42274",
+      "size": 16
+    },
+    {
+      "path": "brei.toml",
+      "deps": [
+        "docs/index.md"
+      ],
+      "modified": "2023-12-01T11:31:07.162775",
+      "hexdigest": "ee4e0b51731fd9d55bf764312201cd2658f6432da2630439710c3b322c615a4d",
+      "size": 724
+    },
+    {
+      "path": "docs/day01.md",
+      "deps": null,
+      "modified": "2023-12-01T14:05:16.355510",
+      "hexdigest": "1133a93d485225c69022955b9c6acad5ab8c7179665231b52ab028e8dd6e0000",
+      "size": 1906
+    },
+    {
+      "path": "src/Day01.jl",
+      "deps": [
+        "docs/day01.md"
+      ],
+      "modified": "2023-12-01T13:57:56.541041",
+      "hexdigest": "5c918a912a09a0dfebae27309fc5f3dc6bad9988151a58bd6f756d5baa844f02",
+      "size": 1120
+    },
+    {
+      "path": "src/AOC2023.jl",
+      "deps": [
+        "docs/index.md"
+      ],
+      "modified": "2023-12-01T10:46:08.931919",
+      "hexdigest": "466fd7627163828c22707528195e452e5931781e8376d16d6e3e26a600e30719",
+      "size": 101
+    },
+    {
+      "path": "test/runtests.jl",
+      "deps": [
+        "docs/day01.md",
+        "docs/index.md"
+      ],
+      "modified": "2023-12-01T14:05:16.383510",
+      "hexdigest": "77627e41c608c3d2d06d5834c854e69b8bf9222fc8ae6203ddabf11606b64f6f",
+      "size": 725
+    }
+  ],
+  "source": [],
+  "target": [
+    "src/Day01.jl",
+    "src/AOC2023.jl",
+    "brei.toml",
+    "test/runtests.jl"
+  ]
+}
