@@ -3,9 +3,14 @@ include = [".entangled/tasks.json"]
 
 [runner.julia]
 command = "julia"
-args = [ "--project=.", "--startup-file=no", "--compile=min", "-O0",
-         "-e", "using DaemonMode; runargs()",
-         "${script}" ]
+args = [
+         "--project=.",
+         "--startup-file=no",
+         "-O0",
+         "-e",
+         "using DaemonMode; runargs()",
+         "${script}",
+]
 
 [[task]]
 name = "julia-daemon"
@@ -29,5 +34,6 @@ println()
 template = "run-day"
 collect = "run"
 [call.args]
-day = ["01"]
+day = ["01", "02"]
 # ~/~ end
+

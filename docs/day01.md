@@ -36,28 +36,28 @@ Testing.
 
 ``` {.julia #test}
 test_input_1 = [
-    "1abc2",
-    "pqr3stu8vwx",
-    "a1b2c3d4e5f",
-    "treb7uchet"
+  "1abc2",
+  "pqr3stu8vwx",
+  "a1b2c3d4e5f",
+  "treb7uchet"
 ]
 
 test_input_2 = [
-    "two1nine",
-    "eightwothree",
-    "abcone2threexyz",
-    "xtwone3four",
-    "4nineeightseven2",
-    "zoneight234",
-    "7pqrstsixteen"
+  "two1nine",
+  "eightwothree",
+  "abcone2threexyz",
+  "xtwone3four",
+  "4nineeightseven2",
+  "zoneight234",
+  "7pqrstsixteen"
 ]
 
 @testset "day 01" begin
-    answer = test_input_1 .|> AOC2023.Day01.calibration_value |> sum
-    @test answer == 142
+  answer = test_input_1 .|> AOC2023.Day01.calibration_value |> sum
+  @test answer == 142
 
-    answer = test_input_2 .|> AOC2023.Day01.improved_calibration |> sum
-    @test answer == 281
+  answer = test_input_2 .|> AOC2023.Day01.improved_calibration |> sum
+  @test answer == 281
 end
 ```
 
@@ -81,3 +81,21 @@ end
 {% include 'day01.txt' %}
 ```
 
+## Rust
+
+``` {.rust file=src/bin/day01.rs}
+use std::io;
+
+fn calibration(line: &String) -> Option<u32> {
+    let mut x = line.chars().filter(|x| x.is_digit(10));
+    let a = x.next()?;
+    let b = x.last().unwrap_or(a);
+    Some((a as u32 - '0' as u32) * 10 + (b as u32 - '0' as u32))
+}
+
+fn main() -> Result<(), io::Error> {
+    let input: Vec<_> = io::stdin().lines().collect::<Result<Vec<_>, _>>()?;
+    println!("{}", input.iter().filter_map(calibration).sum::<u32>());
+    Ok(())
+}
+```
