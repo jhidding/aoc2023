@@ -47,7 +47,7 @@ brei run
     template = "run-day"
     collect = "run"
     [call.args]
-    day = ["01", "02"]
+    day = ["01", "02", "03"]
     ```
 
 ### Visualisations
@@ -74,6 +74,7 @@ include("Parsing.jl")
 
 include("Day01.jl")
 include("Day02.jl")
+include("Day03.jl")
 
 end
 ```
