@@ -1,3 +1,25 @@
 {
-  "task": []
+  "task": [
+    {
+      "description": null,
+      "creates": [
+        "docs/fig/day04-ncards.png"
+      ],
+      "requires": [
+        "src/Day04.jl",
+        "input/day04.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": "#| creates: docs/fig/day04-ncards.png\n#| requires: src/Day04.jl input/day04.txt\n#| collect: figures\nusing CairoMakie\nusing AOC2023.Day04: card_p, play2, wins\n\nCairoMakie.activate!()\ncards = open(readlines, \"input/day04.txt\", \"r\") .|> (first \u2218 card_p)\n\nfig = Figure(size=(600, 1000))\nax = Axis(fig[2,1], yscale=log2)\nbarplot!(ax, 1:length(cards), play2(cards))\n\nfunction stack(ws)\n\theight = zeros(Int, length(ws))\n\tsegments = NTuple{2,Int}[]\n\tfor (i, w) in enumerate(ws)\n\t\th = maximum(height[i:i+w]) + 1\n\t\theight[i:i+w] .= h\n\t\tappend!(segments, ((i, h), (i+w, h)))\n\tend\n\tsegments\nend\n\nax = Axis(fig[1, 1])\nws = wins.(cards)\nlinesegments!(ax, stack(ws); color=:black, linewidth=14)\nlinesegments!(ax, stack(ws); color=ws, colormap=:deep, linewidth=10)\n\nsave(\"docs/fig/day04-ncards.svg\", fig) ",
+      "path": null
+    },
+    {
+      "name": "figures",
+      "requires": [
+        "docs/fig/day04-ncards.png"
+      ]
+    }
+  ]
 }

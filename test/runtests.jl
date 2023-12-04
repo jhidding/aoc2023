@@ -68,7 +68,7 @@ using Test
   # ~/~ end
   # ~/~ begin <<docs/day04.md#test>>[0]
   @testset "day 4" begin
-    using AOC2023.Day04: card_p, score, play
+    using AOC2023.Day04: card_p, score, play, play2
     input = [
       "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53",
       "Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19",
@@ -80,6 +80,7 @@ using Test
     cards = input .|> (first ∘ card_p)
     @test cards .|> score == [8, 2, 2, 1, 0, 0]
     @test 1:6 .|> play(cards) |> sum == 30
+    @test cards |> play2 |> sum == 30
   end
   # ~/~ end
 end

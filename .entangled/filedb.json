@@ -10,10 +10,12 @@
     },
     {
       "path": ".entangled/tasks.json",
-      "deps": [],
-      "modified": "2023-12-01T11:31:07.170775",
-      "hexdigest": "7bb9de66306158195a10e724e13fbcd2d067c37706b4f1bc3f615737edc42274",
-      "size": 16
+      "deps": [
+        "docs/day04.md"
+      ],
+      "modified": "2023-12-04T15:25:29.010700",
+      "hexdigest": "e46420837a1ca2f0524859594da3da029da5eca4c4202fc48d7cfd36e309a6ff",
+      "size": 1250
     },
     {
       "path": "brei.toml",
@@ -57,9 +59,9 @@
         "docs/day02.md",
         "docs/day04.md"
       ],
-      "modified": "2023-12-04T09:19:56.051198",
-      "hexdigest": "05da4d8ce7e684e37dfa46d6effa8e820a814832a2a3be8fae884f91028bd4b6",
-      "size": 2669
+      "modified": "2023-12-04T12:06:34.310155",
+      "hexdigest": "f5e2c3387a815397295337e4645a1b284e7f6c58bee9ef397c95d3f3530cfe0b",
+      "size": 2713
     },
     {
       "path": "src/bin/day01.rs",
@@ -115,30 +117,30 @@
     {
       "path": "docs/day04.md",
       "deps": null,
-      "modified": "2023-12-04T10:45:46.393787",
-      "hexdigest": "7e26af4dd0a7e043265502eb7953c892750b7c1b706ed5083e4116187080cc9f",
-      "size": 2365
+      "modified": "2023-12-04T15:25:28.979700",
+      "hexdigest": "fa34d534a707c62404d2fa25b58077f5ce6205ea76212319e0dce1b98105b92d",
+      "size": 3482
     },
     {
       "path": "src/Day04.jl",
       "deps": [
         "docs/day04.md"
       ],
-      "modified": "2023-12-04T10:45:46.467787",
-      "hexdigest": "86638c33044617ff52516b199d1109e333e9c1da888174b7e6f9a662a4f07c00",
-      "size": 1261
+      "modified": "2023-12-04T14:35:12.150349",
+      "hexdigest": "defb7f739a82c2813ddfe16c39bafed34aaf0acd9f0950e4b019ddc5cb2c44d6",
+      "size": 1446
     }
   ],
   "source": [],
   "target": [
     "test/runtests.jl",
-    "src/Parsing.jl",
+    "src/Day02.jl",
     "src/AOC2023.jl",
     "brei.toml",
     "src/bin/day01.rs",
     "src/Day04.jl",
     "src/Day03.jl",
     "src/Day01.jl",
-    "src/Day02.jl"
+    "src/Parsing.jl"
   ]
 }

@@ -28,8 +28,8 @@ card_p = sequence(
 For part 1, we need to compute the score
 
 ``` {.julia #day04}
-function score(c::Card)
-    x = sum(c.trial .∈ (c.winning,))
+wins(c::Card) = sum(c.trial .∈ (c.winning,))
+score(c::Card) = let x = wins(c) 
     x > 0 ? 2^(x - 1) : 0
 end
 ```
@@ -44,12 +44,23 @@ function play(cards::Vector{Card})
             return 0
         end
         if isnothing(copies[n])
-            c = cards[n]
-            s = sum(c.trial .∈ (c.winning,))
+            s = wins(cards[n])
             copies[n] = sum(f.(n+1:n+s); init=1)
         end
         return copies[n]
     end
+end
+```
+
+Maybe this was needlesly complicated, this is much simpler:
+
+``` {.julia #day04}
+function play2(cards::Vector{Card})
+    copies = ones(Int, length(cards))
+    for (i, c) in enumerate(cards)
+        copies[i+1:i+wins(c)] .+= copies[i]
+    end
+    copies
 end
 ```
 
@@ -63,7 +74,7 @@ module Day04
 function main(io::IO)
     input = readlines(io) .|> (first ∘ card_p)
     println("Part 1: ", input .|> score |> sum)
-    println("Part 2: ", 1:length(input) .|> play(input) |> sum)
+    println("Part 2: ", input |> play2 |> sum)
 end
 
 end
@@ -73,11 +84,48 @@ end
 {% include 'day04.txt' %}
 ```
 
+## Plot
+
+``` {.julia .task}
+#| creates: docs/fig/day04-ncards.png
+#| requires: src/Day04.jl input/day04.txt
+#| collect: figures
+using CairoMakie
+using AOC2023.Day04: card_p, play2, wins
+
+CairoMakie.activate!()
+cards = open(readlines, "input/day04.txt", "r") .|> (first ∘ card_p)
+
+fig = Figure(size=(600, 1000))
+ax = Axis(fig[2,1], yscale=log2)
+barplot!(ax, 1:length(cards), play2(cards))
+
+function stack(ws)
+	height = zeros(Int, length(ws))
+	segments = NTuple{2,Int}[]
+	for (i, w) in enumerate(ws)
+		h = maximum(height[i:i+w]) + 1
+		height[i:i+w] .= h
+		append!(segments, ((i, h), (i+w, h)))
+	end
+	segments
+end
+
+ax = Axis(fig[1, 1])
+ws = wins.(cards)
+linesegments!(ax, stack(ws); color=:black, linewidth=14)
+linesegments!(ax, stack(ws); color=ws, colormap=:deep, linewidth=10)
+
+save("docs/fig/day04-ncards.svg", fig) 
+```
+
+![](fig/day04-ncards.svg)
+
 ## Tests
 
 ``` {.julia #test}
 @testset "day 4" begin
-  using AOC2023.Day04: card_p, score, play
+  using AOC2023.Day04: card_p, score, play, play2
   input = [
     "Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53",
     "Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19",
@@ -89,5 +137,6 @@ end
   cards = input .|> (first ∘ card_p)
   @test cards .|> score == [8, 2, 2, 1, 0, 0]
   @test 1:6 .|> play(cards) |> sum == 30
+  @test cards |> play2 |> sum == 30
 end
 ```

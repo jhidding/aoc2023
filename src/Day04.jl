@@ -18,8 +18,8 @@ card_p = sequence(
     some_p(unsigned)) >> starmap(Card)
 # ~/~ end
 # ~/~ begin <<docs/day04.md#day04>>[1]
-function score(c::Card)
-    x = sum(c.trial .∈ (c.winning,))
+wins(c::Card) = sum(c.trial .∈ (c.winning,))
+score(c::Card) = let x = wins(c) 
     x > 0 ? 2^(x - 1) : 0
 end
 # ~/~ end
@@ -31,19 +31,27 @@ function play(cards::Vector{Card})
             return 0
         end
         if isnothing(copies[n])
-            c = cards[n]
-            s = sum(c.trial .∈ (c.winning,))
+            s = wins(cards[n])
             copies[n] = sum(f.(n+1:n+s); init=1)
         end
         return copies[n]
     end
 end
 # ~/~ end
+# ~/~ begin <<docs/day04.md#day04>>[3]
+function play2(cards::Vector{Card})
+    copies = ones(Int, length(cards))
+    for (i, c) in enumerate(cards)
+        copies[i+1:i+wins(c)] .+= copies[i]
+    end
+    copies
+end
+# ~/~ end
 
 function main(io::IO)
     input = readlines(io) .|> (first ∘ card_p)
     println("Part 1: ", input .|> score |> sum)
-    println("Part 2: ", 1:length(input) .|> play(input) |> sum)
+    println("Part 2: ", input |> play2 |> sum)
 end
 
 end
