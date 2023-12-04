@@ -145,6 +145,12 @@ token_p(p::Parser, space::Parser = match_p(r"\s*")) = p >> skip(space)
 # ~/~ begin <<docs/day02.md#parsing>>[11]
 integer_p = match_p(r"-?[1-9][0-9]*") >> fmap(x -> parse(Int, x.match))
 # ~/~ end
+# ~/~ begin <<docs/day04.md#parsing>>[0]
+some_p(p::Parser) = sequence(p, many_p(p)) >>
+                    starmap((first, rest) -> pushfirst!(rest, first))
+
+token = token_p ∘ match_p
+# ~/~ end
 
 end
 # ~/~ end

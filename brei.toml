@@ -34,5 +34,5 @@ println()
 template = "run-day"
 collect = "run"
 [call.args]
-day = ["01", "02", "03"]
+day = ["01", "02", "03", "04"]
 # ~/~ end
