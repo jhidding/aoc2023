@@ -17,12 +17,12 @@ brei run
     [runner.julia]
     command = "julia"
     args = [
-             "--project=.",
-             "--startup-file=no",
-             "-O0",
-             "-e",
-             "using DaemonMode; runargs()",
-             "${script}",
+      "--project=.",
+      "--startup-file=no",
+      "-O0",
+      "-e",
+      "using DaemonMode; runargs()",
+      "${script}",
     ]
 
     [[task]]
@@ -47,7 +47,7 @@ brei run
     template = "run-day"
     collect = "run"
     [call.args]
-    day = ["01", "02", "03", "04"]
+    day = ["01", "02", "03", "04", "05"]
     ```
 
 ### Visualisations
@@ -76,6 +76,7 @@ include("Day01.jl")
 include("Day02.jl")
 include("Day03.jl")
 include("Day04.jl")
+include("Day05.jl")
 
 end
 ```
