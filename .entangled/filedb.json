@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-05T07:47:10.852928",
-      "hexdigest": "f256041bf947735f73460c78596a080fe4f057e6e423085785f1197d42039c12",
-      "size": 1883
+      "modified": "2023-12-06T12:13:56.166623",
+      "hexdigest": "578e0bf0566bbe42028d82f79ae3725d42cff9a5ae41e810edc9f755bee87eb7",
+      "size": 1921
     },
     {
       "path": ".entangled/tasks.json",
@@ -22,9 +22,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-05T07:47:10.764927",
-      "hexdigest": "022b0e135278495df89e482c60475a261c2252e81800000dc125703a5590beb9",
-      "size": 727
+      "modified": "2023-12-06T12:13:56.135623",
+      "hexdigest": "49787b1f8250e51960da817da53a3325cdf6174d57047ae895ee3ba84606067d",
+      "size": 745
     },
     {
       "path": "docs/day01.md",
@@ -47,9 +47,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-05T07:47:00.652060",
-      "hexdigest": "c60dc074f2f39254cb9f635c19e9458208337b0fc84f1fec95a334141d3ad66c",
-      "size": 205
+      "modified": "2023-12-06T07:28:07.988555",
+      "hexdigest": "457db1851e67c145109e408f52077ea7095cb5761a4fda367f64335d1bea83f4",
+      "size": 225
     },
     {
       "path": "test/runtests.jl",
@@ -60,9 +60,9 @@
         "docs/day01.md",
         "docs/day05.md"
       ],
-      "modified": "2023-12-05T07:53:10.629911",
-      "hexdigest": "dcdf3317da9d3b83bfcdedd1847bb6580ddd13cc55114994859c7e3cb8044386",
-      "size": 3691
+      "modified": "2023-12-06T12:03:01.046838",
+      "hexdigest": "0404890cfaa454e1d70ad0c0bda58fa20499bcadc8d8e70f532ec5348b395064",
+      "size": 3977
     },
     {
       "path": "src/bin/day01.rs",
@@ -85,9 +85,9 @@
     {
       "path": "docs/day02.md",
       "deps": null,
-      "modified": "2023-12-02T23:56:59.247051",
-      "hexdigest": "2eb4f0c470387ff35d9733945afcb72ac41d31bd2986526ea7be769e51a6717d",
-      "size": 7897
+      "modified": "2023-12-06T07:44:58.797461",
+      "hexdigest": "ec5f4d1ac74a506f601ed206b32ad4c01ff7b56606579d2b0cea644129e7bbf5",
+      "size": 7938
     },
     {
       "path": "src/Parsing.jl",
@@ -95,9 +95,9 @@
         "docs/day02.md",
         "docs/day04.md"
       ],
-      "modified": "2023-12-04T10:31:54.189534",
-      "hexdigest": "3e6e46cd45fdca1230a6903b2dd1a68ccca7a00c0d99867a38981dbe4c00e43d",
-      "size": 3503
+      "modified": "2023-12-06T07:44:58.894461",
+      "hexdigest": "63d8fd4d66ec47e96309264951e3f08223c63195901adf7015afcc6faedbbec3",
+      "size": 3534
     },
     {
       "path": "docs/day03.md",
@@ -118,8 +118,8 @@
     {
       "path": "docs/day04.md",
       "deps": null,
-      "modified": "2023-12-04T15:25:28.979700",
-      "hexdigest": "fa34d534a707c62404d2fa25b58077f5ce6205ea76212319e0dce1b98105b92d",
+      "modified": "2023-12-06T07:44:21.790334",
+      "hexdigest": "1de7c4618cd7babcd12251017cd355bd62c479dc731953018c0aaf4e85cb7af6",
       "size": 3482
     },
     {
@@ -134,23 +134,40 @@
     {
       "path": "docs/day05.md",
       "deps": null,
-      "modified": "2023-12-05T23:00:09.791866",
-      "hexdigest": "744f3afc51ce15496756cfaec42da30f3309c1140e59d82255d9b02e050d5952",
-      "size": 3974
+      "modified": "2023-12-06T12:03:01.155838",
+      "hexdigest": "4333837d769a855b9b5fd33234ca8e7dd2327e331533b7f57253876c3f2e3aae",
+      "size": 5187
     },
     {
       "path": "src/Day05.jl",
       "deps": [
         "docs/day05.md"
       ],
-      "modified": "2023-12-05T23:00:09.674865",
-      "hexdigest": "7da76675c26b3434e135c72930ff4d0e58bbd6ae458fc393b5173c81b45ba964",
-      "size": 3075
+      "modified": "2023-12-06T11:36:11.120837",
+      "hexdigest": "5e496bbb4e75992433396917eb4166dc45454faff7d40c0640d49ba97876fa55",
+      "size": 3318
+    },
+    {
+      "path": "docs/day06.md",
+      "deps": null,
+      "modified": "2023-12-06T11:22:46.100833",
+      "hexdigest": "9318c1184422ceebba7b4d35c0363bc6dfd5835e58cc436128613f553869bae7",
+      "size": 1661
+    },
+    {
+      "path": "src/Day06.jl",
+      "deps": [
+        "docs/day06.md"
+      ],
+      "modified": "2023-12-06T11:22:02.038816",
+      "hexdigest": "f85b65a3e719c6d7220c7667454fdda320a11087989fc118718d1d5ed94a4de2",
+      "size": 757
     }
   ],
   "source": [],
   "target": [
     "test/runtests.jl",
+    "src/Day06.jl",
     "src/Day02.jl",
     "src/AOC2023.jl",
     "brei.toml",

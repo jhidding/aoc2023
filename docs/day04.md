@@ -1,7 +1,7 @@
 # Day 04: Scratchcards
 Now I'm so happy with the parser combinator! We need just one more combinator, `some_p` for one or more matches. Also, let's add the `token` abbreviation.
 
-``` {.julia #parsing}
+``` {.julia #parsers}
 some_p(p::Parser) = sequence(p, many_p(p)) >>
                     starmap((first, rest) -> pushfirst!(rest, first))
 

@@ -4,6 +4,7 @@ module Day05
 using ..Parsing: token_p, match_p, sep_by_p, fmap, some_p, sequence, starmap, skip
 using .Iterators: flatmap
 
+# ~/~ begin <<docs/day05.md#day05>>[init]
 struct MapItem
   range::UnitRange{Int}
   offset::Int
@@ -19,7 +20,8 @@ struct Almanak
   seeds::Vector{Int}
   maps::Vector{SeedMap}
 end
-
+# ~/~ end
+# ~/~ begin <<docs/day05.md#day05>>[1]
 function read_input(io::IO)
   token(expr) = token_p(match_p(expr), match_p(r" *"))
   newline = match_p(r"\n")
@@ -40,7 +42,8 @@ function read_input(io::IO)
 
   read(io, String) |> almanak |> first
 end
-
+# ~/~ end
+# ~/~ begin <<docs/day05.md#day05>>[2]
 function search_sorted_ranges(vec::AbstractVector{UnitRange{Int}}, x::Int)
   a = 1
   b = length(vec)
@@ -71,12 +74,19 @@ function search_sorted_ranges(vec::AbstractVector{UnitRange{Int}}, x::Int)
     return a
   end
 end
-
+# ~/~ end
+# ~/~ begin <<docs/day05.md#day05>>[3]
 function find_map_item(vec::AbstractVector{MapItem}, l::Int)
   x = search_sorted_ranges(map(m -> m.range, vec), l)
   x isa Symbol ? nothing : (l in vec[x].range ? vec[x] : nothing)
 end
 
+function (m::SeedMap)(l::Int)
+  f = find_map_item(m.items, l)
+  isnothing(f) ? l : (l + f.offset)
+end
+# ~/~ end
+# ~/~ begin <<docs/day05.md#day05>>[4]
 function (m::SeedMap)(r::UnitRange{Int})
   if (r.stop < m.items[1].range.start) |
      (r.start > m.items[end].range.stop)
@@ -108,11 +118,7 @@ function (m::SeedMap)(r::UnitRange{Int})
   end
   result
 end
-
-function (m::SeedMap)(l::Int)
-  f = find_map_item(m.items, l)
-  isnothing(f) ? l : (l + f.offset)
-end
+# ~/~ end
 
 function (maps::Vector{SeedMap})(i::Int)
   foldl((x, f) -> f(x), maps; init=i)

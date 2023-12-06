@@ -265,19 +265,23 @@ end
 The `token_p` parser is used to skip any whitespace after a token.
 
 ``` {.julia #parsing}
-token_p(p::Parser, space::Parser = match_p(r"\s*")) = p >> skip(space)
+token_p(p::Parser, space::Parser=match_p(r"\s*")) = p >> skip(space)
 ```
 
 A handy derived parser gets us integers.
 
-``` {.julia #parsing}
+``` {.julia #parsers}
 integer_p = match_p(r"-?[1-9][0-9]*") >> fmap(x -> parse(Int, x.match))
+
+integer = token_p(integer_p)
 ```
 
 ``` {.julia file=src/Parsing.jl}
 module Parsing
 
 <<parsing>>
+
+<<parsers>>
 
 end
 ```

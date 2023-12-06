@@ -140,16 +140,19 @@ function match_p(r::Regex)
 end
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[10]
-token_p(p::Parser, space::Parser = match_p(r"\s*")) = p >> skip(space)
+token_p(p::Parser, space::Parser=match_p(r"\s*")) = p >> skip(space)
 # ~/~ end
-# ~/~ begin <<docs/day02.md#parsing>>[11]
-integer_p = match_p(r"-?[1-9][0-9]*") >> fmap(x -> parse(Int, x.match))
-# ~/~ end
-# ~/~ begin <<docs/day04.md#parsing>>[0]
+
+# ~/~ begin <<docs/day04.md#parsers>>[init]
 some_p(p::Parser) = sequence(p, many_p(p)) >>
                     starmap((first, rest) -> pushfirst!(rest, first))
 
 token = token_p ∘ match_p
+# ~/~ end
+# ~/~ begin <<docs/day02.md#parsers>>[0]
+integer_p = match_p(r"-?[1-9][0-9]*") >> fmap(x -> parse(Int, x.match))
+
+integer = token_p(integer_p)
 # ~/~ end
 
 end

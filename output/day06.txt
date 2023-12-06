@@ -1,0 +1,4 @@
+[31m[1mERROR: [97;22mLoadError:[31;22m UndefVarError: `Day06` not defined[0m
+Stacktrace:
+ [1] [1meval[0m at [1m./boot.jl:385[0m
+

@@ -1,0 +1,7 @@
+[deps]
+AOC2023 = "fbe2764c-2f68-4152-98a6-87730d53bef0"
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+DaemonMode = "d749ddd5-2b29-4920-8305-6ff5a704e36e"
+Makie = "ee78f7c6-11fb-53f2-987a-cfe4a2b5a57a"
+Pluto = "c3e4b0f8-55cb-11ea-2926-15256bba5781"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
