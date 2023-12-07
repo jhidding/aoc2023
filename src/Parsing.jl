@@ -6,20 +6,20 @@ struct Parser
   fn::Function
 end
 
-function (p::Parser)(s::String)
+function (p::Parser)(s::AbstractString)
   p.fn(s)
 end
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[1]
 function bind_p(p::Parser, f::Function)
-  function (inp::String)
+  function (inp::AbstractString)
     (x, next_inp) = p(inp)
     f(x)(next_inp)
   end |> Parser
 end
 
 function pure_p(v)
-  function (inp::String)
+  function (inp::AbstractString)
     (v, inp)
   end |> Parser
 end
@@ -36,8 +36,8 @@ thunk_p(f) = Parser(inp -> (f(), inp))
 abstract type Fail <: Exception end
 
 struct Expected <: Fail
-  what::String
-  got::String
+  what::AbstractString
+  got::AbstractString
 end
 
 struct ChoiceFail <: Fail
@@ -50,7 +50,7 @@ end
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[3]
 function choice_p(p1::Parser, p2::Parser)
-  function (inp::String)
+  function (inp::AbstractString)
     try
       p1(inp)
     catch e1
@@ -75,7 +75,7 @@ skip(p::Parser) = v -> (p >> (_ -> pure_p(v)))
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[6]
 function sequence(; xargs...)
-  function (inp::String)
+  function (inp::AbstractString)
     result = Dict()
     next = inp
     for (k, p) in xargs
@@ -89,7 +89,7 @@ function sequence(; xargs...)
 end
 
 function sequence(vargs...)
-  function (inp::String)
+  function (inp::AbstractString)
     result = []
     next = inp
     for p in vargs
@@ -102,7 +102,7 @@ end
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[7]
 function many_p(p::Parser)
-  function (inp::String)
+  function (inp::AbstractString)
     result = []
     while true
       try
@@ -120,8 +120,8 @@ sep_by_p(p::Parser, sep::Parser) =
   sequence(p, many_p(sep >>> p)) >> starmap((h, t) -> pushfirst!(t, h))
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[9]
-function match_p(s::String)
-  function (inp::String)
+function match_p(s::AbstractString)
+  function (inp::AbstractString)
     if !startswith(inp, s)
       throw(Expected(s, inp))
     end
@@ -130,7 +130,7 @@ function match_p(s::String)
 end
 
 function match_p(r::Regex)
-  function (inp::String)
+  function (inp::AbstractString)
     if !startswith(inp, r)
       throw(Expected("$r", inp))
     end

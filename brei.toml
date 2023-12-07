@@ -13,8 +13,16 @@ args = [
 ]
 
 [[task]]
+name = "repl"
+script = "julia --project=workenv -e 'using Revise' -i"
+
+[[task]]
 name = "julia-daemon"
 script = "julia --project=workenv --startup-file=no -e 'using Revise; using DaemonMode; serve()'"
+
+[[task]]
+name = "test"
+script = "julia --project=. -e 'using Pkg; Pkg.test()'"
 
 [template.run-day]
 name = "day${day}"
@@ -34,5 +42,5 @@ println()
 template = "run-day"
 collect = "run"
 [call.args]
-day = ["01", "02", "03", "04", "05", "06"]
+day = ["01", "02", "03", "04", "05", "06", "07"]
 # ~/~ end

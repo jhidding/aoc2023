@@ -27,8 +27,16 @@ brei run
     ]
 
     [[task]]
+    name = "repl"
+    script = "julia --project=workenv -e 'using Revise' -i"
+
+    [[task]]
     name = "julia-daemon"
     script = "julia --project=workenv --startup-file=no -e 'using Revise; using DaemonMode; serve()'"
+
+    [[task]]
+    name = "test"
+    script = "julia --project=. -e 'using Pkg; Pkg.test()'"
 
     [template.run-day]
     name = "day${day}"
@@ -48,7 +56,7 @@ brei run
     template = "run-day"
     collect = "run"
     [call.args]
-    day = ["01", "02", "03", "04", "05", "06"]
+    day = ["01", "02", "03", "04", "05", "06", "07"]
     ```
 
 ### Visualisations
@@ -79,6 +87,7 @@ include("Day03.jl")
 include("Day04.jl")
 include("Day05.jl")
 include("Day06.jl")
+include("Day07.jl")
 
 end
 ```

@@ -101,7 +101,7 @@ struct Parser
   fn::Function
 end
 
-function (p::Parser)(s::String)
+function (p::Parser)(s::AbstractString)
   p.fn(s)
 end
 ```
@@ -110,14 +110,14 @@ A Parser is a monad.
 
 ``` {.julia #parsing}
 function bind_p(p::Parser, f::Function)
-  function (inp::String)
+  function (inp::AbstractString)
     (x, next_inp) = p(inp)
     f(x)(next_inp)
   end |> Parser
 end
 
 function pure_p(v)
-  function (inp::String)
+  function (inp::AbstractString)
     (v, inp)
   end |> Parser
 end
@@ -137,8 +137,8 @@ thunk_p(f) = Parser(inp -> (f(), inp))
 abstract type Fail <: Exception end
 
 struct Expected <: Fail
-  what::String
-  got::String
+  what::AbstractString
+  got::AbstractString
 end
 
 struct ChoiceFail <: Fail
@@ -155,7 +155,7 @@ The `choice` combinator (and its `|` alias) runs first one parser. If that fails
 
 ``` {.julia #parsing}
 function choice_p(p1::Parser, p2::Parser)
-  function (inp::String)
+  function (inp::AbstractString)
     try
       p1(inp)
     catch e1
@@ -187,7 +187,7 @@ We have two kinds of `sequence` combinators. These are used to put multiple pars
 
 ``` {.julia #parsing}
 function sequence(; xargs...)
-  function (inp::String)
+  function (inp::AbstractString)
     result = Dict()
     next = inp
     for (k, p) in xargs
@@ -201,7 +201,7 @@ function sequence(; xargs...)
 end
 
 function sequence(vargs...)
-  function (inp::String)
+  function (inp::AbstractString)
     result = []
     next = inp
     for p in vargs
@@ -217,7 +217,7 @@ The `many_p` combinator parses `p` as often as it can, resulting in a `Vector` o
 
 ``` {.julia #parsing}
 function many_p(p::Parser)
-  function (inp::String)
+  function (inp::AbstractString)
     result = []
     while true
       try
@@ -242,8 +242,8 @@ sep_by_p(p::Parser, sep::Parser) =
 The `match_p(s)` parser succeeds if `startswith(inp, s)` is true. This is implemented for both `String` literals and `Regex` patterns.
 
 ``` {.julia #parsing}
-function match_p(s::String)
-  function (inp::String)
+function match_p(s::AbstractString)
+  function (inp::AbstractString)
     if !startswith(inp, s)
       throw(Expected(s, inp))
     end
@@ -252,7 +252,7 @@ function match_p(s::String)
 end
 
 function match_p(r::Regex)
-  function (inp::String)
+  function (inp::AbstractString)
     if !startswith(inp, r)
       throw(Expected("$r", inp))
     end
