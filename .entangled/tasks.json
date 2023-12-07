@@ -16,9 +16,54 @@
       "path": null
     },
     {
+      "description": "Pythagorean tree",
+      "creates": [
+        "docs/fig/pythagoras.png"
+      ],
+      "requires": [
+        "examples/pythagoras.scm",
+        "examples/pythagoras.css"
+      ],
+      "runner": "bash",
+      "stdout": null,
+      "stdin": null,
+      "script": "#| creates: docs/fig/pythagoras.png\n#| description: Pythagorean tree\n#| requires: examples/pythagoras.scm examples/pythagoras.css\n#| collect: figures\nguile xml-gen.scm < examples/pythagoras.scm \\\n    | rsvg-convert -z 2 > docs/fig/pythagoras.png",
+      "path": null
+    },
+    {
+      "description": null,
+      "creates": [],
+      "requires": [
+        "xml-gen.scm",
+        "src/day05-data.scm"
+      ],
+      "runner": "bash",
+      "stdout": "docs/fig/day05-flow.svg",
+      "stdin": "src/viz-day05.scm",
+      "script": "#| collect: figures\n#| stdout: docs/fig/day05-flow.svg\n#| stdin: src/viz-day05.scm\n#| requires: xml-gen.scm src/day05-data.scm\nguile xml-gen.scm",
+      "path": null
+    },
+    {
+      "description": null,
+      "creates": [
+        "src/day05-data.scm"
+      ],
+      "requires": [
+        "src/Day05.jl",
+        "input/day05.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": "#| requires: src/Day05.jl input/day05.txt\n#| creates: src/day05-data.scm\nusing AOC2023.Day05: read_input\nusing .Iterators: flatmap\n\nalmanak = open(read_input, \"input/day05.txt\", \"r\")\nforeach(x -> sort!(x.items; by=y -> y.range), almanak.maps)\n\nopen(\"src/day05-data.scm\", \"w\") do io\n  println(io, \"(make-almanak\")\n  println(io, \"  `(\")\n  ranges = map(x -> x[1]:x[1]+x[2]-1, eachcol(reshape(almanak.seeds, 2, :)))\n  for r in ranges\n    println(io, \"     ((,(make-range $(r.start) $(r.stop + 1)))\")\n    s = [r]\n    for m in almanak.maps\n        s = collect(flatmap(m, s))\n        print(io, \"      (\")\n        join(io, (\",(make-range $(r.start) $(r.stop + 1))\" for r in s), \" \")\n        println(io, \")\")\n    end\n    println(io, \"     )\")\n  end\n  println(io, \"   )\")\n  println(io, \"  `(\")\n  for m in almanak.maps\n    println(io, \"     ,(make-mapping \\\"$(m.from)\\\" \\\"$(m.to)\\\" `(\")\n    for i in m.items\n      println(io, \"       (,(make-range $(i.range.start) $(i.range.stop+1)) . $(i.offset))\")\n    end\n    println(io, \"     ))\")\n  end\n  println(io, \"   )\")\n  println(io, \")\")\nend",
+      "path": null
+    },
+    {
       "name": "figures",
       "requires": [
-        "docs/fig/day04-ncards.png"
+        "docs/fig/day04-ncards.png",
+        "docs/fig/pythagoras.png",
+        "docs/fig/day05-flow.svg"
       ]
     }
   ]

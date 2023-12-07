@@ -1,4 +1,5 @@
 # About
+[![Entangled badge](https://img.shields.io/badge/entangled-Use%20the%20source!-%2300aeff)](https://entangled.github.io/)
 
 ## About Julia
 Most of these solutions will be written in Julia. The advantage of Julia is that we have a modern expressive language with native performance. However, since Julia compiles code just-in-time, there usually is a lag involved. It is relatively hard to evaluate Julia snippets from the shell in a usable manner. I'm using `DaemonMode.jl` to get a reasonable middle ground between responsivity and code efficiency.

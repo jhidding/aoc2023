@@ -1,0 +1,9 @@
+/* ~/~ begin <<docs/svg-gen.md#examples/pythagoras.css>>[init] */
+g.leaf circle {
+   fill: #ffcccc;
+}
+
+g.leaf {
+   filter: brightness(80%);
+}
+/* ~/~ end */
