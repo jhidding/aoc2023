@@ -46,49 +46,6 @@ using Test
     @test cards |> play2 |> sum == 30
   end
   # ~/~ end
-  # ~/~ begin <<docs/day05.md#test>>[0]
-  @testset "day 5" begin
-    using AOC2023.Day05: read_input
-    data = "seeds: 79 14 55 13\n\
-            \n\
-            seed-to-soil map:\n\
-            50 98 2\n\
-            52 50 48\n\
-            \n\
-            soil-to-fertilizer map:\n\
-            0 15 37\n\
-            37 52 2\n\
-            39 0 15\n\
-            \n\
-            fertilizer-to-water map:\n\
-            49 53 8\n\
-            0 11 42\n\
-            42 0 7\n\
-            57 7 4\n\
-            \n\
-            water-to-light map:\n\
-            88 18 7\n\
-            18 25 70\n\
-            \n\
-            light-to-temperature map:\n\
-            45 77 23\n\
-            81 45 19\n\
-            68 64 13\n\
-            \n\
-            temperature-to-humidity map:\n\
-            0 69 1\n\
-            1 0 69\n\
-            \n\
-            humidity-to-location map:\n\
-            60 56 37\n\
-            56 93 4\n"
-    input = read_input(IOBuffer(data))
-    foreach(x -> sort!(x.items; by=y -> y.range), input.maps)
-    @test input.seeds .|> (input.maps,) |> minimum == 35
-    ranges = map(x -> x[1]:x[1]+x[2]-1, eachcol(reshape(input.seeds, 2, :)))
-    @test ranges .|> (minimum ∘ input.maps) |> minimum |> minimum == 46
-  end
-  # ~/~ end
   # ~/~ begin <<docs/day02.md#test>>[0]
   @testset "day 2" begin
     using AOC2023.Day02: game_p, Game
@@ -140,6 +97,49 @@ using Test
     @test sum(i * h.amount for (i, h) in enumerate(bids)) == 6440
     sort!(bids; by=b -> joker_hand_score(b.hand))
     @test sum(i * h.amount for (i, h) in enumerate(bids)) == 5905
+  end
+  # ~/~ end
+  # ~/~ begin <<docs/day05.md#test>>[0]
+  @testset "day 5" begin
+    using AOC2023.Day05: read_input
+    data = "seeds: 79 14 55 13\n\
+            \n\
+            seed-to-soil map:\n\
+            50 98 2\n\
+            52 50 48\n\
+            \n\
+            soil-to-fertilizer map:\n\
+            0 15 37\n\
+            37 52 2\n\
+            39 0 15\n\
+            \n\
+            fertilizer-to-water map:\n\
+            49 53 8\n\
+            0 11 42\n\
+            42 0 7\n\
+            57 7 4\n\
+            \n\
+            water-to-light map:\n\
+            88 18 7\n\
+            18 25 70\n\
+            \n\
+            light-to-temperature map:\n\
+            45 77 23\n\
+            81 45 19\n\
+            68 64 13\n\
+            \n\
+            temperature-to-humidity map:\n\
+            0 69 1\n\
+            1 0 69\n\
+            \n\
+            humidity-to-location map:\n\
+            60 56 37\n\
+            56 93 4\n"
+    input = read_input(IOBuffer(data))
+    foreach(x -> sort!(x.items; by=y -> y.range), input.maps)
+    @test input.seeds .|> (input.maps,) |> minimum == 35
+    ranges = map(x -> x[1]:x[1]+x[2]-1, eachcol(reshape(input.seeds, 2, :)))
+    @test ranges .|> (minimum ∘ input.maps) |> minimum |> minimum == 46
   end
   # ~/~ end
 end

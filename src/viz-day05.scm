@@ -76,18 +76,20 @@
     (/g)))
 
 (define style-sheet "
+  svg {
+  }
   .segment .line {
     fill: none;
-    stroke: black;
+    stroke: #888;
     stroke-width: 0.005;
-    opacity: 0.4;
+    opacity: 0.5;
   }
   .segment .fill {
-    fill: hsl(0deg, 60%, 20%);
+    fill: hsl(0deg, 60%, 50%);
     opacity: 0.15;
   }
   .ruler {
-    stroke: black;
+    stroke: #888;
     stroke-width: 0.01;
   }
   .no0 { --hue: 0deg; }
@@ -107,6 +109,7 @@
   }
   text {
     font-size: 30px;
+    fill: #888;
     font-family: 'Monofur Nerd Font';
   }
   ")

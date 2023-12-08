@@ -59,11 +59,27 @@
       "path": null
     },
     {
+      "description": "Create GraphViz plot",
+      "creates": [
+        "docs/fig/viz-day08.svg"
+      ],
+      "requires": [
+        "src/Day08.jl",
+        "input/day08.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": null,
+      "path": "src/viz-day08-gen.jl"
+    },
+    {
       "name": "figures",
       "requires": [
         "docs/fig/day04-ncards.png",
         "docs/fig/pythagoras.png",
-        "docs/fig/day05-flow.svg"
+        "docs/fig/day05-flow.svg",
+        "docs/fig/viz-day08.svg"
       ]
     }
   ]

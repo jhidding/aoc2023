@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-07T15:58:26.985973",
-      "hexdigest": "91268efd53dd058fccba0e8d915c8dbbda24fc196385b4673df093c8055ae244",
-      "size": 2252
+      "modified": "2023-12-07T23:04:08.449867",
+      "hexdigest": "74e8b8adcbda194dff87c57c92074c192540c69ca88f2d4eb98851f2a1fc183f",
+      "size": 2278
     },
     {
       "path": ".entangled/tasks.json",
@@ -14,20 +14,21 @@
         "docs/day04.md",
         "docs/svg-gen.md",
         "docs/day05.md",
-        "docs/day05.md"
+        "docs/day05.md",
+        "docs/day08.md"
       ],
-      "modified": "2023-12-07T08:52:42.474076",
-      "hexdigest": "af520e7247e5e67c22cb2c24adabc35d2c1938ee5f5052ac25925df3e40e232b",
-      "size": 3761
+      "modified": "2023-12-08T11:13:17.576630",
+      "hexdigest": "e3970862dbb3ab3a0ae6c0ac03101ac47f23da7b343f1580ac66913d94d3c39e",
+      "size": 4120
     },
     {
       "path": "brei.toml",
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-07T15:58:26.866972",
-      "hexdigest": "5d5bb8828a14c032c67a50e7d4f9a165cfd24d38543aee5cae49e9f9391f5872",
-      "size": 911
+      "modified": "2023-12-07T23:04:08.328866",
+      "hexdigest": "19d793f4401fc780c1f9674cc5a2684a9cb90e3fdfc1930d4bbce8da71ccd91b",
+      "size": 917
     },
     {
       "path": "docs/day01.md",
@@ -50,22 +51,22 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-07T09:00:22.372801",
-      "hexdigest": "59198fc5f9fb3019d39b6042375400d32159d980831b3fa566dd4372068390d2",
-      "size": 245
+      "modified": "2023-12-07T23:03:54.344835",
+      "hexdigest": "b50fdc9f8f8c7820b6cf4677068a32f62512d41d50a7d20134e1f60eca8e5265",
+      "size": 265
     },
     {
       "path": "test/runtests.jl",
       "deps": [
         "docs/index.md",
+        "docs/day05.md",
+        "docs/day01.md",
         "docs/day04.md",
         "docs/day02.md",
-        "docs/day05.md",
-        "docs/day07.md",
-        "docs/day01.md"
+        "docs/day07.md"
       ],
-      "modified": "2023-12-07T22:21:23.191943",
-      "hexdigest": "29533f0bffc3d9db9590d3f847907ed6f79a8d8089352cd80c900fbce25f35cd",
+      "modified": "2023-12-08T10:20:27.181675",
+      "hexdigest": "f9e2d0d29b4b85d6b38cce8d014fa7d51455b4824d96dabfeb6a2883eaaf7f9e",
       "size": 4493
     },
     {
@@ -138,9 +139,9 @@
     {
       "path": "docs/day05.md",
       "deps": null,
-      "modified": "2023-12-07T08:53:24.434120",
-      "hexdigest": "e78e5d8ca4cf7fe58974168a818d1bd8db77d9865291aef24b2fcd7644e5f5d7",
-      "size": 11162
+      "modified": "2023-12-08T05:56:11.423317",
+      "hexdigest": "412c010ba38488f23da583e994108ef8d04abcbc3dbe34a9d7588bcecc6e99da",
+      "size": 11200
     },
     {
       "path": "src/Day05.jl",
@@ -207,9 +208,9 @@
         "docs/day05.md",
         "docs/svg-gen.md"
       ],
-      "modified": "2023-12-07T08:47:05.817717",
-      "hexdigest": "1e98f75fbf127fd7d80b65ee847758671cb9a49171737c0e6ebf58145d2e1967",
-      "size": 4368
+      "modified": "2023-12-08T05:56:11.299317",
+      "hexdigest": "2c35656a2fc968c9b8310cb6dfb50f47e4d3b37d2d6c0549930356b01675306a",
+      "size": 4394
     },
     {
       "path": "docs/day07.md",
@@ -226,25 +227,52 @@
       "modified": "2023-12-07T22:16:48.535172",
       "hexdigest": "609ff67843f0f044285e0200a05235349cabaef2b4b385ffe27a62781e3003bd",
       "size": 1406
+    },
+    {
+      "path": "docs/day08.md",
+      "deps": null,
+      "modified": "2023-12-08T11:29:44.361264",
+      "hexdigest": "837c99262f78d754f967a72f38cb0ee0672fab73ceb4d262fabfcbc4ad759b62",
+      "size": 3444
+    },
+    {
+      "path": "src/Day08.jl",
+      "deps": [
+        "docs/day08.md"
+      ],
+      "modified": "2023-12-08T10:20:27.183675",
+      "hexdigest": "a17e8b12aa87f9cbbd1104134aa26ee497680694ddd254a6dd9fc2882988c8e3",
+      "size": 1556
+    },
+    {
+      "path": "src/viz-day08-gen.jl",
+      "deps": [
+        "docs/day08.md"
+      ],
+      "modified": "2023-12-08T11:29:44.549265",
+      "hexdigest": "ce9187d14a7bd76dec9df11e221b708207a02f5070a529dbc11d05473d27ff93",
+      "size": 1340
     }
   ],
   "source": [],
   "target": [
-    "examples/pythagoras.css",
-    "test/runtests.jl",
-    "src/Day06.jl",
+    "src/Day05.jl",
     "src/viz-day05.scm",
-    "src/Parsing.jl",
+    "src/Day04.jl",
+    "src/bin/day01.rs",
+    "examples/pythagoras.scm",
     "src/AOC2023.jl",
     "xml-gen.scm",
     "brei.toml",
-    "src/Day07.jl",
-    "src/bin/day01.rs",
-    "src/Day04.jl",
-    "src/Day03.jl",
     "src/Day01.jl",
-    "src/Day05.jl",
-    "examples/pythagoras.scm",
-    "src/Day02.jl"
+    "src/Day02.jl",
+    "src/Day08.jl",
+    "src/viz-day08-gen.jl",
+    "test/runtests.jl",
+    "src/Day07.jl",
+    "src/Parsing.jl",
+    "src/Day03.jl",
+    "examples/pythagoras.css",
+    "src/Day06.jl"
   ]
 }
