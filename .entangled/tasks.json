@@ -70,8 +70,8 @@
       "runner": "julia",
       "stdout": null,
       "stdin": null,
-      "script": null,
-      "path": "src/viz-day08-gen.jl"
+      "script": "#| creates: docs/fig/viz-day08.svg\n#| requires: src/Day08.jl input/day08.txt\n#| description: Create GraphViz plot\n#| collect: figures\n\nusing AOC2023.Day08: input_p, map_node\nusing GraphvizDotLang: digraph, edge, save, node, attr\n\ninput = open(\"input/day08.txt\", \"r\") do io\n  read(io, String) |> input_p |> first\nend\nnodes = collect(keys(input.network))\nm = length(input.instructions)\n\nstarts = nodes[occursin.(r\"..A\", nodes)]\nstep_map = Dict(\n  id => map_node(input.network, id, input.instructions)\n  for id in nodes)\n\n# gt = digraph()\n# for n in nodes\n#   gt |> edge(n, input.network[n].left) |>\n#        edge(n, input.network[n].right)\n# end\n# save(gt, \"docs/fig/day08-tree.svg\")\n\ng = digraph(;bgcolor=\"transparent\", nodesep=\"0.1\", ranksep=\"0.05\",\n            rankdir=\"TD\") |>\n    attr(:node; style=\"filled\", fillcolor=\"black\", fontcolor=\"white\", color=\"gray\", fontname=\"monospace\", fontsize=\"1\", margin=\"0.05\", width=\"0.05\", height=\"0.05\") |>\n    attr(:edge; color=\"gray\", arrowsize=\"0.3\")\nfor s in starts\n  g |> node(s; fillcolor=\"green\", fontsize=\"14\")\nend\nfor e in nodes[occursin.(r\"..Z\", nodes)]\n  g |> node(e; fillcolor=\"blue\", fontsize=\"10\")\nend\nfor id in nodes\n  g |> edge(id, map_node(input.network, id, input.instructions))\nend\nsave(g, \"docs/fig/viz-day08.svg\")",
+      "path": null
     },
     {
       "name": "figures",

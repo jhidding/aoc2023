@@ -2,3 +2,6 @@ name = "AOC2023"
 uuid = "fbe2764c-2f68-4152-98a6-87730d53bef0"
 authors = ["Johan Hidding <j.hidding@esciencecenter.nl>"]
 version = "0.1.0"
+
+[deps]
+Transducers = "28d57a85-8fef-5791-bfe6-a80928e7c999"

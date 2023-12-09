@@ -85,7 +85,7 @@ end
 
 ![](fig/viz-day08.svg)
 
-``` {.julia .task file=src/viz-day08-gen.jl}
+``` {.julia .task}
 #| creates: docs/fig/viz-day08.svg
 #| requires: src/Day08.jl input/day08.txt
 #| description: Create GraphViz plot
