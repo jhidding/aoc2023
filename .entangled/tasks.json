@@ -74,12 +74,28 @@
       "path": null
     },
     {
+      "description": "plot day 10",
+      "creates": [
+        "docs/fig/day10.svg"
+      ],
+      "requires": [
+        "src/Day10.jl",
+        "input/day10.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": null,
+      "path": "src/viz-day10.jl"
+    },
+    {
       "name": "figures",
       "requires": [
         "docs/fig/day04-ncards.png",
         "docs/fig/pythagoras.png",
         "docs/fig/day05-flow.svg",
-        "docs/fig/viz-day08.svg"
+        "docs/fig/viz-day08.svg",
+        "docs/fig/day10.svg"
       ]
     }
   ]

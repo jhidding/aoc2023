@@ -142,5 +142,26 @@ using Test
     @test ranges .|> (minimum ∘ input.maps) |> minimum |> minimum == 46
   end
   # ~/~ end
+  # ~/~ begin <<docs/day10.md#test>>[0]
+  @testset "day 10" begin
+    using AOC2023.Day10: start_pipe, trace_loop
+
+    data = [
+     ".....", 
+     ".S-7.",
+     ".|.|.",
+     ".L-J.",
+     "....." 
+    ]
+
+    pipe_map = data .|> collect |> x -> permutedims(reduce(hcat, x), (2, 1))
+    start_pos = findfirst(pipe_map .== 'S')
+    pipe_map[start_pos] = start_pipe(pipe_map, start_pos)
+    pipe_map, start_pos
+    _, dist, area = trace_loop(pipe_map, start_pos)
+    @test dist == 8
+    @test area == 1
+  end
+  # ~/~ end
 end
 # ~/~ end

@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-09T07:32:31.714515",
-      "hexdigest": "9dc80ac502e18c2170a3209fa55c862fd84b2a370f5bc6e7e67efbb5b3062ba6",
-      "size": 2304
+      "modified": "2023-12-10T21:20:59.885983",
+      "hexdigest": "f660f11d3c824ab0858f606536054d459daf62705784ff024c1f75b0069ceb2c",
+      "size": 2330
     },
     {
       "path": ".entangled/tasks.json",
@@ -15,20 +15,21 @@
         "docs/svg-gen.md",
         "docs/day05.md",
         "docs/day05.md",
-        "docs/day08.md"
+        "docs/day08.md",
+        "docs/day10.md"
       ],
-      "modified": "2023-12-09T07:29:29.738312",
-      "hexdigest": "cb69c84cab4a6a93f5661c51fbdbf3513c4fcf8f6aa0183e56b41148680143e0",
-      "size": 5462
+      "modified": "2023-12-10T21:25:22.036132",
+      "hexdigest": "fa451bfece74adb430784e5d938277e4593ebb86dfe1a7af0805e03df1b65675",
+      "size": 5800
     },
     {
       "path": "brei.toml",
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-09T07:32:19.913508",
-      "hexdigest": "4f76cb83f999ba1501118e3cf9516a2f42ae78a0a23c6f092f2200488dbf86c4",
-      "size": 923
+      "modified": "2023-12-09T23:10:56.023178",
+      "hexdigest": "c4b1f09b4a35af7fe385dcd66ec5f6339f524ca83fe01eb7c681adeca345e3c1",
+      "size": 929
     },
     {
       "path": "docs/day01.md",
@@ -51,23 +52,24 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-09T07:32:31.593515",
-      "hexdigest": "7659d083299dc2997c5358095ebb138809131bf24cea3f39ef3347a9e78838f9",
-      "size": 285
+      "modified": "2023-12-10T21:20:59.708982",
+      "hexdigest": "a8f0ca813fd8f4a100a7fe12cfc7d0b284f2dee5ade0c6ab82954412b5c1b2d9",
+      "size": 305
     },
     {
       "path": "test/runtests.jl",
       "deps": [
-        "docs/index.md",
-        "docs/day05.md",
-        "docs/day01.md",
+        "docs/day10.md",
         "docs/day04.md",
+        "docs/day07.md",
+        "docs/day05.md",
+        "docs/index.md",
         "docs/day02.md",
-        "docs/day07.md"
+        "docs/day01.md"
       ],
-      "modified": "2023-12-08T10:20:27.181675",
-      "hexdigest": "f9e2d0d29b4b85d6b38cce8d014fa7d51455b4824d96dabfeb6a2883eaaf7f9e",
-      "size": 4493
+      "modified": "2023-12-10T18:48:11.375989",
+      "hexdigest": "39fc98baad04369c69f0356c6ed568d6abe6ce88121fdb594e8a91fe3be1cd35",
+      "size": 5013
     },
     {
       "path": "src/bin/day01.rs",
@@ -247,7 +249,7 @@
     {
       "path": "docs/day09.md",
       "deps": null,
-      "modified": "2023-12-09T09:34:03.800258",
+      "modified": "2023-12-10T17:42:47.237030",
       "hexdigest": "43554ff8037498ebeb4ff9b5cd5f36a457bf8373447e79ea0ae7288cae57f4aa",
       "size": 643
     },
@@ -259,27 +261,54 @@
       "modified": "2023-12-09T08:57:46.358674",
       "hexdigest": "ab366ac1ce9eb1bf7357a1c94743101e3461813c557fe0084c308936344a881d",
       "size": 580
+    },
+    {
+      "path": "docs/day10.md",
+      "deps": null,
+      "modified": "2023-12-10T21:33:18.691371",
+      "hexdigest": "9e5c23e20931890919395ead26d8d61f37e905e365828a47895c8008e5cb0512",
+      "size": 6376
+    },
+    {
+      "path": "src/Day10.jl",
+      "deps": [
+        "docs/day10.md"
+      ],
+      "modified": "2023-12-10T20:32:53.447884",
+      "hexdigest": "fd55c354dea8ab3c5dd5c211bd43d9689deb91b5074f8821b7dc2001c4725b0c",
+      "size": 3759
+    },
+    {
+      "path": "src/viz-day10.jl",
+      "deps": [
+        "docs/day10.md"
+      ],
+      "modified": "2023-12-10T21:26:11.248363",
+      "hexdigest": "a43672b3522043258d277e2932d1f7bdf109f404eba295a5ee610abe291fda84",
+      "size": 566
     }
   ],
   "source": [],
   "target": [
-    "src/Day09.jl",
-    "src/bin/day01.rs",
-    "src/viz-day05.scm",
-    "examples/pythagoras.scm",
-    "src/Day05.jl",
-    "src/Day04.jl",
     "src/Day02.jl",
     "src/AOC2023.jl",
     "xml-gen.scm",
+    "src/Day07.jl",
+    "src/Day10.jl",
+    "src/bin/day01.rs",
+    "src/Day03.jl",
+    "src/Day06.jl",
+    "src/Day09.jl",
+    "src/viz-day05.scm",
+    "examples/pythagoras.scm",
+    "src/viz-day10.jl",
+    "src/Day08.jl",
+    "src/Parsing.jl",
+    "src/Day05.jl",
+    "src/Day04.jl",
     "brei.toml",
     "src/Day01.jl",
-    "src/Day08.jl",
     "test/runtests.jl",
-    "src/Day07.jl",
-    "src/Parsing.jl",
-    "src/Day03.jl",
-    "examples/pythagoras.css",
-    "src/Day06.jl"
+    "examples/pythagoras.css"
   ]
 }
