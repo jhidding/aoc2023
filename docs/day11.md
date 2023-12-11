@@ -6,7 +6,7 @@ $$t_{n+1} = 2t_{n} - t_{n-1} + nx_n,$$
 where $x_n$ is the distance between each consecutive number. Since we're in Manhattan metric, we can compute the sum for columns and rows separately.
 Now we don't need the sets to keep the empty space or anything. If $x_n > 1$ that automatically means there were empty columns or rows in between.
 
-## Using Transducers
+Note that by default, `findall` already returns cartesian indices sorted on second index.
 
 ``` {.julia file=src/Day11.jl}
 module Day11
@@ -14,16 +14,14 @@ module Day11
 using Transducers
 
 function main(io::IO)
-  total(f) =
-    last ∘ 
+  total(f) = last ∘ 
 	  foldxl(((t1, t2), (n, dx)) -> (t2, 2t2 - t1 + n*dx); init=(0, 0)) ∘
-    Enumerate() ∘
-    Map(((a, b),) ->  max(0, (b - a - 1) * f + 1)) ∘
+    Enumerate() ∘ Map(((a, b),) ->  max(0, (b - a - 1) * f + 1)) ∘
     Consecutive(2, 1)
 
   universe = open(foldxl(hcat) ∘ Map(collect) ∘ readlines, "input/day11.txt", "r") .== '#'
   galaxies = findall(universe) |> Map(Tuple) |> collect
-  solve(f) = (sort(first.(galaxies)) |> total(f)) + (sort(last.(galaxies)) |> total(f))
+  solve(f) = (sort!(first.(galaxies)) |> total(f)) + (last.(galaxies) |> total(f))
   println("Part 1: ", solve(2))
   println("Part 2: ", solve(10^6))
 end
@@ -31,11 +29,13 @@ end
 end
 ```
 
-
 ``` title="output day 11"
 {% include "day11.txt" %}
 ```
 
+## Old solution
+
+My old solution has a method to get all combinations of galaxies and then computes the distance between all of them, having a complexity of at least $O(n^2)$, while the solution above is more like $O(n\log n)$ (sorting being the most expensive operation).
 
 ??? "Old solution"
 

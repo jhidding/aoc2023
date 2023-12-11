@@ -290,18 +290,18 @@
     {
       "path": "docs/day11.md",
       "deps": null,
-      "modified": "2023-12-11T16:06:56.619928",
-      "hexdigest": "013a9b60baa51c5bde5d7bc6ee44b112393e685d181c21ec7e80f7cc0b4b6515",
-      "size": 2326
+      "modified": "2023-12-11T16:14:36.782881",
+      "hexdigest": "3e282c1113a2093664a7b1e8b81e8f181c5c6aa576735ab8b4ed86c2e58cfbef",
+      "size": 2654
     },
     {
       "path": "src/Day11.jl",
       "deps": [
         "docs/day11.md"
       ],
-      "modified": "2023-12-11T16:06:52.277900",
-      "hexdigest": "469234e32166a7d9fcc8661f360793778051e72069d84e861ff36281cd0c31c2",
-      "size": 626
+      "modified": "2023-12-11T16:13:07.172318",
+      "hexdigest": "9325e513080ff2468be583f84c352e6a617ee1c818c606c242b0e3d4722f20b4",
+      "size": 613
     }
   ],
   "source": [],
