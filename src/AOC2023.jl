@@ -13,6 +13,7 @@ include("Day07.jl")
 include("Day08.jl")
 include("Day09.jl")
 include("Day10.jl")
+include("Day11.jl")
 
 end
 # ~/~ end

@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-10T21:20:59.885983",
-      "hexdigest": "f660f11d3c824ab0858f606536054d459daf62705784ff024c1f75b0069ceb2c",
-      "size": 2330
+      "modified": "2023-12-10T22:02:17.899401",
+      "hexdigest": "6727c1e1112a6c675356d5e0d2dd4b75d8cbd44694d20c65fac2388f8d920134",
+      "size": 2356
     },
     {
       "path": ".entangled/tasks.json",
@@ -27,9 +27,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-09T23:10:56.023178",
-      "hexdigest": "c4b1f09b4a35af7fe385dcd66ec5f6339f524ca83fe01eb7c681adeca345e3c1",
-      "size": 929
+      "modified": "2023-12-10T22:02:05.451339",
+      "hexdigest": "081ed65cfcf707461a6eb89bbe24ada92425f6d9d85db1809ab8ef025ab5acfa",
+      "size": 935
     },
     {
       "path": "docs/day01.md",
@@ -52,9 +52,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-10T21:20:59.708982",
-      "hexdigest": "a8f0ca813fd8f4a100a7fe12cfc7d0b284f2dee5ade0c6ab82954412b5c1b2d9",
-      "size": 305
+      "modified": "2023-12-10T22:02:17.752400",
+      "hexdigest": "7b0cd9660878b32ac3cb107397f00a23825222ca3a1222cf595eafa7253b7758",
+      "size": 325
     },
     {
       "path": "test/runtests.jl",
@@ -265,9 +265,9 @@
     {
       "path": "docs/day10.md",
       "deps": null,
-      "modified": "2023-12-10T21:33:18.691371",
-      "hexdigest": "9e5c23e20931890919395ead26d8d61f37e905e365828a47895c8008e5cb0512",
-      "size": 6376
+      "modified": "2023-12-11T00:36:46.511940",
+      "hexdigest": "e6629dd84903a1e364748ef59ac1ff22d0cd28dc1d851907bd9243324000071f",
+      "size": 6747
     },
     {
       "path": "src/Day10.jl",
@@ -283,9 +283,25 @@
       "deps": [
         "docs/day10.md"
       ],
-      "modified": "2023-12-10T21:26:11.248363",
-      "hexdigest": "a43672b3522043258d277e2932d1f7bdf109f404eba295a5ee610abe291fda84",
-      "size": 566
+      "modified": "2023-12-11T00:36:46.455940",
+      "hexdigest": "ad35d33c14f1cb67ff059fe337aff48e9582c0aa77ab97bdbdd14e735a9cffbe",
+      "size": 938
+    },
+    {
+      "path": "docs/day11.md",
+      "deps": null,
+      "modified": "2023-12-11T08:16:11.712824",
+      "hexdigest": "168384a5c663680a4e3f3ff275b0876a9c5bc4f7c76c5212a5d4ca0ff2b1718c",
+      "size": 1144
+    },
+    {
+      "path": "src/Day11.jl",
+      "deps": [
+        "docs/day11.md"
+      ],
+      "modified": "2023-12-11T08:15:48.020727",
+      "hexdigest": "4cf2e3721a9f74208dcc2e0068e2a024f4764ce3f59872b413a4732c1e8acdf4",
+      "size": 1081
     }
   ],
   "source": [],
@@ -293,6 +309,7 @@
     "src/Day02.jl",
     "src/AOC2023.jl",
     "xml-gen.scm",
+    "src/Day11.jl",
     "src/Day07.jl",
     "src/Day10.jl",
     "src/bin/day01.rs",

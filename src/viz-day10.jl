@@ -12,10 +12,18 @@ using CairoMakie
 function main(io)
   pm, sp = open(read_input, "input/day10.txt", "r")
   tr, path, inner = plot_loop(pm, sp)
-  fig = Figure()
-  ax = Axis(fig[1, 1])
-  lines!(ax, path)
-  poly!(ax, inner .- [0.5, 0.5]; color=:green)
+  (c1, _, c2, _, _, c3) = Makie.wong_colors()
+  fig = Figure(size=(600, 800))
+  ax1 = Axis(fig[2:3, 1]; aspect=AxisAspect(1))
+  lines!(ax1, path; color=c2)
+  poly!(ax1, inner .- [0.5, 0.5]; color=c3)
+
+  ax2 = Axis(fig[1, 1]; aspect=DataAspect(), limits=(70, 80, 80, 85))
+  lines!(ax2, path; color=c2)
+  scatter!(ax2, path; color=c2)
+  poly!(ax2, inner .- [0.5, 0.5]; color=c3)
+  lines!(ax2, inner .- [0.5, 0.5]; color=:black)
+  scatter!(ax2, inner .- [0.5, 0.5]; color=:black)
   save("docs/fig/day10.svg", fig)
 end
 
