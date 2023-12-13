@@ -97,7 +97,7 @@ We put the parser inside a `struct` so that we can specialize methods for them. 
 | `~a` | Optional parser |
 
 ``` {.julia #parsing}
-struct Parser
+mutable struct Parser
   fn::Function
 end
 
@@ -135,6 +135,10 @@ thunk_p(f) = Parser(inp -> (f(), inp))
 
 ``` {.julia #parsing}
 abstract type Fail <: Exception end
+
+struct FailMsg <: Fail
+  msg::String
+end
 
 struct Expected <: Fail
   what::AbstractString

@@ -46,43 +46,6 @@ using Test
     @test cards |> play2 |> sum == 30
   end
   # ~/~ end
-  # ~/~ begin <<docs/day02.md#test>>[0]
-  @testset "day 2" begin
-    using AOC2023.Day02: game_p, Game
-    input = ["Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
-      "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
-      "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red",
-      "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
-      "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"]
-    games = input .|> (first ∘ game_p)
-    bag = [12, 13, 14]
-    possible(g::Game) = all(g.draws .<= bag')
-    @test filter(possible, games) .|> (g -> g.n) |> sum == 8
-
-    minbag(g::Game) = maximum(g.draws; dims=1)
-    power(bag) = reduce(*, bag)
-    @test games .|> minbag .|> power |> sum == 2286
-  end
-  # ~/~ end
-  # ~/~ begin <<docs/day02.md#test>>[1]
-  @testset "Parsing" begin
-    using AOC2023.Parsing: match_p, integer_p, token_p, sequence, many_p
-
-    @test match_p("hello")("hellogoodbye") == ("hello", "goodbye")
-
-    p = match_p("a") >>> match_p("b")
-    @test p("abc") == ("b", "c")
-
-    p = sequence(match_p("a"), match_p("b"))
-    @test p("abc") == (["a", "b"], "c")
-
-    p = sequence(n=match_p("a"), m=match_p("b"))
-    @test p("abc") == (Dict(:n => "a", :m => "b"), "c")
-
-    p = many_p(token_p(integer_p))
-    @test p("1  2 3  4 56    7 abc") == ([1, 2, 3, 4, 56, 7], "abc")
-  end
-  # ~/~ end
   # ~/~ begin <<docs/day07.md#test>>[0]
   @testset "day 7" begin
     using AOC2023.Day07: bid_p, hand_score, joker_hand_score
@@ -161,6 +124,43 @@ using Test
     _, dist, area = trace_loop(pipe_map, start_pos)
     @test dist == 8
     @test area == 1
+  end
+  # ~/~ end
+  # ~/~ begin <<docs/day02.md#test>>[0]
+  @testset "day 2" begin
+    using AOC2023.Day02: game_p, Game
+    input = ["Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",
+      "Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",
+      "Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red",
+      "Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red",
+      "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"]
+    games = input .|> (first ∘ game_p)
+    bag = [12, 13, 14]
+    possible(g::Game) = all(g.draws .<= bag')
+    @test filter(possible, games) .|> (g -> g.n) |> sum == 8
+
+    minbag(g::Game) = maximum(g.draws; dims=1)
+    power(bag) = reduce(*, bag)
+    @test games .|> minbag .|> power |> sum == 2286
+  end
+  # ~/~ end
+  # ~/~ begin <<docs/day02.md#test>>[1]
+  @testset "Parsing" begin
+    using AOC2023.Parsing: match_p, integer_p, token_p, sequence, many_p
+
+    @test match_p("hello")("hellogoodbye") == ("hello", "goodbye")
+
+    p = match_p("a") >>> match_p("b")
+    @test p("abc") == ("b", "c")
+
+    p = sequence(match_p("a"), match_p("b"))
+    @test p("abc") == (["a", "b"], "c")
+
+    p = sequence(n=match_p("a"), m=match_p("b"))
+    @test p("abc") == (Dict(:n => "a", :m => "b"), "c")
+
+    p = many_p(token_p(integer_p))
+    @test p("1  2 3  4 56    7 abc") == ([1, 2, 3, 4, 56, 7], "abc")
   end
   # ~/~ end
 end

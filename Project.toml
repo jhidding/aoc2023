@@ -4,4 +4,5 @@ authors = ["Johan Hidding <j.hidding@esciencecenter.nl>"]
 version = "0.1.0"
 
 [deps]
+Memoize = "c03570c3-d221-55d1-a50c-7939bbd78826"
 Transducers = "28d57a85-8fef-5791-bfe6-a80928e7c999"

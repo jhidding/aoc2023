@@ -2,7 +2,7 @@
 module Parsing
 
 # ~/~ begin <<docs/day02.md#parsing>>[init]
-struct Parser
+mutable struct Parser
   fn::Function
 end
 
@@ -34,6 +34,10 @@ thunk_p(f) = Parser(inp -> (f(), inp))
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[2]
 abstract type Fail <: Exception end
+
+struct FailMsg <: Fail
+  msg::String
+end
 
 struct Expected <: Fail
   what::AbstractString

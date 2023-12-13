@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-10T22:02:17.899401",
-      "hexdigest": "6727c1e1112a6c675356d5e0d2dd4b75d8cbd44694d20c65fac2388f8d920134",
-      "size": 2356
+      "modified": "2023-12-12T08:19:39.316711",
+      "hexdigest": "16b6371e03c7e04c2a5b3f2115c21fb5086299a35820d2f180822b13447a76ee",
+      "size": 2382
     },
     {
       "path": ".entangled/tasks.json",
@@ -27,9 +27,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-10T22:02:05.451339",
-      "hexdigest": "081ed65cfcf707461a6eb89bbe24ada92425f6d9d85db1809ab8ef025ab5acfa",
-      "size": 935
+      "modified": "2023-12-12T08:19:39.259711",
+      "hexdigest": "763b67717ae0aa93f22732073c4f6c69c4ad7a48b90cad0c40a09584d33de449",
+      "size": 941
     },
     {
       "path": "docs/day01.md",
@@ -52,9 +52,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-10T22:02:17.752400",
-      "hexdigest": "7b0cd9660878b32ac3cb107397f00a23825222ca3a1222cf595eafa7253b7758",
-      "size": 325
+      "modified": "2023-12-12T08:19:31.223666",
+      "hexdigest": "1103d9bc68b179218f30e223a1d001e0a86321ad55a5997ad7fbba6e919008cb",
+      "size": 345
     },
     {
       "path": "test/runtests.jl",
@@ -67,9 +67,9 @@
         "docs/day02.md",
         "docs/day01.md"
       ],
-      "modified": "2023-12-10T18:48:11.375989",
-      "hexdigest": "39fc98baad04369c69f0356c6ed568d6abe6ce88121fdb594e8a91fe3be1cd35",
-      "size": 5013
+      "modified": "2023-12-12T14:58:52.165688",
+      "hexdigest": "7c34fbf6058b06bdbdc08a617a49ad0e8ee918281ed3deba449b04de388d9166",
+      "size": 5012
     },
     {
       "path": "src/bin/day01.rs",
@@ -92,19 +92,19 @@
     {
       "path": "docs/day02.md",
       "deps": null,
-      "modified": "2023-12-07T15:42:10.954999",
-      "hexdigest": "0cb26baf5cc5bfb166f370cda3e2e73756b6f99ff83d194b3cca60e192778b15",
-      "size": 8034
+      "modified": "2023-12-12T15:16:52.144460",
+      "hexdigest": "1f13bcedf7e27e811946f3df7dcebb43409ac26b6679932ef1797561d050dc20",
+      "size": 8084
     },
     {
       "path": "src/Parsing.jl",
       "deps": [
-        "docs/day02.md",
-        "docs/day04.md"
+        "docs/day04.md",
+        "docs/day02.md"
       ],
-      "modified": "2023-12-07T15:42:10.822999",
-      "hexdigest": "26cc79704d2ff26ed46c048cd50fafe833818471b7c916d1f73ea010eefbd04a",
-      "size": 3631
+      "modified": "2023-12-13T01:17:51.216568",
+      "hexdigest": "31b4fcf5c9c42304a9e0d126669c0e73ed83a879afbdcab5c5774a3b0ec6441e",
+      "size": 3680
     },
     {
       "path": "docs/day03.md",
@@ -302,30 +302,47 @@
       "modified": "2023-12-11T16:13:07.172318",
       "hexdigest": "9325e513080ff2468be583f84c352e6a617ee1c818c606c242b0e3d4722f20b4",
       "size": 613
+    },
+    {
+      "path": "docs/day12.md",
+      "deps": null,
+      "modified": "2023-12-13T01:16:50.111066",
+      "hexdigest": "769c0ae055b841a1c445203c27652a026f2098f175dcc097075100751bb9761c",
+      "size": 1973
+    },
+    {
+      "path": "src/Day12.jl",
+      "deps": [
+        "docs/day12.md"
+      ],
+      "modified": "2023-12-13T01:17:51.215568",
+      "hexdigest": "4cbbced996f6e5ad133334a279a21d4e04c6e648794131192198590819ffa441",
+      "size": 1402
     }
   ],
   "source": [],
   "target": [
-    "src/Day02.jl",
-    "src/AOC2023.jl",
-    "xml-gen.scm",
-    "src/Day11.jl",
-    "src/Day07.jl",
+    "src/Parsing.jl",
     "src/Day10.jl",
     "src/bin/day01.rs",
-    "src/Day03.jl",
-    "src/Day06.jl",
-    "src/Day09.jl",
-    "src/viz-day05.scm",
-    "examples/pythagoras.scm",
-    "src/viz-day10.jl",
-    "src/Day08.jl",
-    "src/Parsing.jl",
-    "src/Day05.jl",
     "src/Day04.jl",
-    "brei.toml",
-    "src/Day01.jl",
+    "examples/pythagoras.css",
+    "src/Day05.jl",
+    "src/viz-day05.scm",
+    "src/Day03.jl",
+    "src/Day07.jl",
+    "xml-gen.scm",
     "test/runtests.jl",
-    "examples/pythagoras.css"
+    "src/viz-day10.jl",
+    "src/Day12.jl",
+    "src/Day01.jl",
+    "src/Day11.jl",
+    "src/Day02.jl",
+    "src/AOC2023.jl",
+    "brei.toml",
+    "examples/pythagoras.scm",
+    "src/Day09.jl",
+    "src/Day06.jl",
+    "src/Day08.jl"
   ]
 }

@@ -2,7 +2,7 @@
 
 julia_version = "1.10.0-rc2"
 manifest_format = "2.0"
-project_hash = "ae4ca1c3884326af91a08a920d366f3c1cf46c38"
+project_hash = "8066237d31af4a245d4ed5188d8b6f006d06f3dd"
 
 [[deps.Adapt]]
 deps = ["LinearAlgebra", "Requires"]
@@ -151,6 +151,12 @@ version = "0.5.11"
 [[deps.Markdown]]
 deps = ["Base64"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
+
+[[deps.Memoize]]
+deps = ["MacroTools"]
+git-tree-sha1 = "2b1dfcba103de714d31c033b5dacc2e4a12c7caa"
+uuid = "c03570c3-d221-55d1-a50c-7939bbd78826"
+version = "0.4.4"
 
 [[deps.MicroCollections]]
 deps = ["BangBang", "InitialValues", "Setfield"]
