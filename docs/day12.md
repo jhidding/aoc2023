@@ -10,7 +10,7 @@ if isempty(num)
 end
 ```
 
-The minimum string length, given a sequence of numbers is $\sum n + #n - 1$.
+The minimum string length, given a sequence of numbers is $\sum n + \#n - 1$.
 
 ``` {.julia #day12-cases}
 if length(s) < sum(num) + length(num) - 1

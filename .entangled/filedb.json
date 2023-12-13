@@ -306,9 +306,9 @@
     {
       "path": "docs/day12.md",
       "deps": null,
-      "modified": "2023-12-13T01:16:50.111066",
-      "hexdigest": "769c0ae055b841a1c445203c27652a026f2098f175dcc097075100751bb9761c",
-      "size": 1973
+      "modified": "2023-12-13T01:20:40.912646",
+      "hexdigest": "80ea7aafe107bdc12d5e46fae2aba8e41c110a2955d9bdb99081dc97cae40544",
+      "size": 1974
     },
     {
       "path": "src/Day12.jl",
@@ -322,27 +322,27 @@
   ],
   "source": [],
   "target": [
-    "src/Parsing.jl",
-    "src/Day10.jl",
-    "src/bin/day01.rs",
     "src/Day04.jl",
-    "examples/pythagoras.css",
-    "src/Day05.jl",
-    "src/viz-day05.scm",
-    "src/Day03.jl",
-    "src/Day07.jl",
-    "xml-gen.scm",
-    "test/runtests.jl",
-    "src/viz-day10.jl",
     "src/Day12.jl",
-    "src/Day01.jl",
-    "src/Day11.jl",
-    "src/Day02.jl",
-    "src/AOC2023.jl",
-    "brei.toml",
-    "examples/pythagoras.scm",
+    "src/Day05.jl",
+    "src/viz-day10.jl",
     "src/Day09.jl",
+    "examples/pythagoras.css",
+    "src/Day07.jl",
+    "src/Day08.jl",
+    "test/runtests.jl",
+    "src/Day11.jl",
+    "src/Day03.jl",
+    "src/bin/day01.rs",
+    "src/Day01.jl",
+    "src/Parsing.jl",
+    "src/viz-day05.scm",
+    "brei.toml",
+    "src/AOC2023.jl",
     "src/Day06.jl",
-    "src/Day08.jl"
+    "xml-gen.scm",
+    "src/Day02.jl",
+    "src/Day10.jl",
+    "examples/pythagoras.scm"
   ]
 }
