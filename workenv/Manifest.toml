@@ -2,10 +2,10 @@
 
 julia_version = "1.10.0-rc2"
 manifest_format = "2.0"
-project_hash = "4aa1dc2a86a558b954309763e2aa4b326925fc2a"
+project_hash = "9f961ec4e1340561fe415e886563151bf543c91f"
 
 [[deps.AOC2023]]
-deps = ["Memoize", "Transducers"]
+deps = ["InitialValues", "Memoize", "Transducers"]
 path = ".."
 uuid = "fbe2764c-2f68-4152-98a6-87730d53bef0"
 version = "0.1.0"

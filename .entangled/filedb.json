@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-12T08:19:39.316711",
-      "hexdigest": "16b6371e03c7e04c2a5b3f2115c21fb5086299a35820d2f180822b13447a76ee",
-      "size": 2382
+      "modified": "2023-12-14T10:46:01.024418",
+      "hexdigest": "fc98c0c14b6b13487473d866d1a778b8f677e330eafd632ce33f1d839fffd4c3",
+      "size": 2525
     },
     {
       "path": ".entangled/tasks.json",
@@ -27,9 +27,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-12T08:19:39.259711",
-      "hexdigest": "763b67717ae0aa93f22732073c4f6c69c4ad7a48b90cad0c40a09584d33de449",
-      "size": 941
+      "modified": "2023-12-14T10:45:43.834341",
+      "hexdigest": "f5fdaf0cc8ca69537d6d6023bf2f8a76fe1793908a03745fe4ce6bd74acf45a0",
+      "size": 984
     },
     {
       "path": "docs/day01.md",
@@ -52,9 +52,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-12T08:19:31.223666",
-      "hexdigest": "1103d9bc68b179218f30e223a1d001e0a86321ad55a5997ad7fbba6e919008cb",
-      "size": 345
+      "modified": "2023-12-14T10:46:00.959418",
+      "hexdigest": "1aee3bd8898614c85d105d76973a47e32ded2d68b44a458949f4b4bbef872dd7",
+      "size": 385
     },
     {
       "path": "test/runtests.jl",
@@ -92,9 +92,9 @@
     {
       "path": "docs/day02.md",
       "deps": null,
-      "modified": "2023-12-12T15:16:52.144460",
-      "hexdigest": "1f13bcedf7e27e811946f3df7dcebb43409ac26b6679932ef1797561d050dc20",
-      "size": 8084
+      "modified": "2023-12-13T11:51:34.456688",
+      "hexdigest": "c7455fc52257816a6dc3627b2ea3b2cbd36c6f979bb3c0f244ebf4eddc45cf88",
+      "size": 9313
     },
     {
       "path": "src/Parsing.jl",
@@ -318,6 +318,47 @@
       "modified": "2023-12-13T01:17:51.215568",
       "hexdigest": "4cbbced996f6e5ad133334a279a21d4e04c6e648794131192198590819ffa441",
       "size": 1402
+    },
+    {
+      "path": "docs/day13.md",
+      "deps": null,
+      "modified": "2023-12-14T10:44:21.935975",
+      "hexdigest": "1dd5fed5d590bcd4b6f44bba1da4104e9fc5971fa5afe3a3acd0c9aaaf8f6ef1",
+      "size": 1280
+    },
+    {
+      "path": "src/Day13.jl",
+      "deps": [
+        "docs/day13.md"
+      ],
+      "modified": "2023-12-13T10:42:01.354427",
+      "hexdigest": "a46155e4f451f435cdb45111c1baef4d1759e77b4d57bf17f32b1078d368a6ab",
+      "size": 1216
+    },
+    {
+      "path": "src/day02.py",
+      "deps": [
+        "docs/day02.md"
+      ],
+      "modified": "2023-12-13T11:51:34.405687",
+      "hexdigest": "f2603d0cba23bcb28bd046da6ac953366f193e4d5dea7765a67bec712d43e745",
+      "size": 1119
+    },
+    {
+      "path": "docs/day14.md",
+      "deps": null,
+      "modified": "2023-12-14T21:10:38.890677",
+      "hexdigest": "29182b29adf57c4069f9c3179d00d0e4830dc8d9ade0396d004fdb8be1d13f98",
+      "size": 2209
+    },
+    {
+      "path": "src/Day14.jl",
+      "deps": [
+        "docs/day14.md"
+      ],
+      "modified": "2023-12-14T21:02:16.081725",
+      "hexdigest": "793384e267c53303ce84b02bd345c7e6a45086657d6c9204acd337a000382ffb",
+      "size": 2140
     }
   ],
   "source": [],
@@ -325,12 +366,15 @@
     "src/Day04.jl",
     "src/Day12.jl",
     "src/Day05.jl",
+    "src/Day13.jl",
+    "src/Day14.jl",
     "src/viz-day10.jl",
     "src/Day09.jl",
     "examples/pythagoras.css",
     "src/Day07.jl",
     "src/Day08.jl",
     "test/runtests.jl",
+    "src/day02.py",
     "src/Day11.jl",
     "src/Day03.jl",
     "src/bin/day01.rs",
