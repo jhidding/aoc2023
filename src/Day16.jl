@@ -44,27 +44,30 @@ function part1(inp, x=CartesianIndex(1, 1), dx=CartesianIndex(0, 1))
 
   sum(dirs .!= 0)
 end
+# ~/~ end
+# ~/~ begin <<docs/day16.md#day16>>[4]
+function loop(f, v, x, dx)
+  # Having these constants outside the loop function DOUBLES the runtime
+  DOT, HYPHEN, VBAR, SLASH, BACKSLASH = codeunits(".-|/\\")
+
+  !checkbounds(Bool, f, x) && return
+  v[x] & dirmap(dx) != 0 && return
+  v[x] |= dirmap(dx)
+  if f[x] == DOT || (f[x] == HYPHEN && dx[1] == 0) || (f[x] == VBAR && dx[2] == 0)
+    loop(f, v, x + dx, dx)
+  elseif f[x] == SLASH
+    loop(f, v, x - swap(dx), -swap(dx))
+  elseif f[x] == BACKSLASH
+    loop(f, v, x + swap(dx), swap(dx))
+  else
+    loop(f, v, x + swap(dx), swap(dx))
+    loop(f, v, x - swap(dx), -swap(dx))
+  end
+end
 
 function part1a(inp, x, dx)
   dirs = zeros(UInt8, size(inp)...)
-
-  function loop(x, dx)
-    !checkbounds(Bool, inp, x) && return
-    dirs[x] & dirmap(dx) != 0 && return
-    dirs[x] |= dirmap(dx)
-    if inp[x] == '.' || (inp[x] == '-' && dx[1] == 0) || (inp[x] == '|' && dx[2] == 0)
-      loop(x + dx, dx)
-    elseif inp[x] == '/'
-      loop(x - swap(dx), -swap(dx))
-    elseif inp[x] == '\\'
-      loop(x + swap(dx), swap(dx))
-    else
-      loop(x + swap(dx), swap(dx))
-      loop(x - swap(dx), -swap(dx))
-    end
-  end
-
-  loop(x, dx)
+  loop(inp, dirs, x, dx)
   sum(dirs .!= 0)
 end
 # ~/~ end
@@ -78,7 +81,7 @@ function borders(s)
 end
 
 function main(io::IO)
-  inp = readlines(io) .|> collect |> stack |> permutedims
+  inp = readlines(io) .|> codeunits |> stack |> permutedims
   println("Part 1: ", part1a(inp, CartesianIndex(1, 1), CartesianIndex(0, 1)))
   println("Part 2: ", maximum(((x, dx),) -> part1a(inp, x, dx), borders(size(inp))))
 end

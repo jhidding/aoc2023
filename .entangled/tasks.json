@@ -89,6 +89,21 @@
       "path": "src/viz-day10.jl"
     },
     {
+      "description": null,
+      "creates": [
+        "output/day16-julia.txt"
+      ],
+      "requires": [
+        "src/Day16.jl",
+        "input/day16.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": "#| creates: output/day16-julia.txt\n#| requires: src/Day16.jl input/day16.txt\n#| collect: benchmarks\nusing BenchmarkTools\nusing AOC2023.Day16: part1a, borders\n\ninp = open(readlines, \"input/day16.txt\", \"r\") .|> codeunits |> stack |> permutedims\nopen(\"output/day16-julia.txt\", \"w\") do f_out\n    b = @benchmark maximum(((x, dx),) -> part1a(inp, x, dx), borders(size(inp)))\n    show(f_out, MIME(\"text/plain\"), b)\nend",
+      "path": null
+    },
+    {
       "description": "run rust day 16",
       "creates": [],
       "requires": [
@@ -97,7 +112,7 @@
       "runner": "bash",
       "stdout": "output/day16-rust.txt",
       "stdin": "input/day16.txt",
-      "script": "#| description: run rust day 16\n#| stdout: output/day16-rust.txt\n#| stdin: input/day16.txt\n#| requires: src/bin/day16.rs\n#| collect: rust\ncargo run --release --bin day16 < input/day16.txt",
+      "script": "#| description: run rust day 16\n#| stdout: output/day16-rust.txt\n#| stdin: input/day16.txt\n#| requires: src/bin/day16.rs\n#| collect: benchmarks\ncargo run --release --bin day16 < input/day16.txt",
       "path": null
     },
     {
@@ -111,8 +126,9 @@
       ]
     },
     {
-      "name": "rust",
+      "name": "benchmarks",
       "requires": [
+        "output/day16-julia.txt",
         "output/day16-rust.txt"
       ]
     }

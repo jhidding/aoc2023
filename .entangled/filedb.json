@@ -17,11 +17,12 @@
         "docs/day05.md",
         "docs/day08.md",
         "docs/day10.md",
+        "docs/day16.md",
         "docs/day16.md"
       ],
-      "modified": "2023-12-16T21:38:43.012907",
-      "hexdigest": "f76173ed6c9ed798798f7885067f3c99c2af75fec701a9201e88fc7e3bdeea29",
-      "size": 6355
+      "modified": "2023-12-16T22:38:12.262969",
+      "hexdigest": "066c7b9372fc87669cf0b60355f577fb1c89b247e2daf021f6b521277ae130d7",
+      "size": 7119
     },
     {
       "path": "brei.toml",
@@ -380,18 +381,18 @@
     {
       "path": "docs/day16.md",
       "deps": null,
-      "modified": "2023-12-16T21:53:24.270259",
-      "hexdigest": "24980a98f66492b78e57735be1860f4f878166a2147ffd5691ee68ecf8cff45f",
-      "size": 7899
+      "modified": "2023-12-16T22:38:12.203969",
+      "hexdigest": "5f7b51be6fe4e2dc1665636bc2cd73b02d2212cf6de9c9b295bdcb02532c8a63",
+      "size": 8853
     },
     {
       "path": "src/Day16.jl",
       "deps": [
         "docs/day16.md"
       ],
-      "modified": "2023-12-16T15:22:27.502630",
-      "hexdigest": "47f1cf298f255b3a3d718be178b53be9d55c703e3650fdaedcff9cb985416e29",
-      "size": 2467
+      "modified": "2023-12-16T22:34:06.247989",
+      "hexdigest": "1f639ddbf665b7c6ff1b70f4493dbd19219bc0be35841c7eb69d66c8f9d886bb",
+      "size": 2660
     },
     {
       "path": "src/bin/day16.rs",

@@ -55,29 +55,6 @@ function part1(inp, x=CartesianIndex(1, 1), dx=CartesianIndex(0, 1))
 
   sum(dirs .!= 0)
 end
-
-function part1a(inp, x, dx)
-  dirs = zeros(UInt8, size(inp)...)
-
-  function loop(x, dx)
-    !checkbounds(Bool, inp, x) && return
-    dirs[x] & dirmap(dx) != 0 && return
-    dirs[x] |= dirmap(dx)
-    if inp[x] == '.' || (inp[x] == '-' && dx[1] == 0) || (inp[x] == '|' && dx[2] == 0)
-      loop(x + dx, dx)
-    elseif inp[x] == '/'
-      loop(x - swap(dx), -swap(dx))
-    elseif inp[x] == '\\'
-      loop(x + swap(dx), swap(dx))
-    else
-      loop(x + swap(dx), swap(dx))
-      loop(x - swap(dx), -swap(dx))
-    end
-  end
-
-  loop(x, dx)
-  sum(dirs .!= 0)
-end
 ```
 
 For part 2 we can brute force on all starting positions, and get the result in about half a second.
@@ -96,7 +73,7 @@ function borders(s)
 end
 
 function main(io::IO)
-  inp = readlines(io) .|> collect |> stack |> permutedims
+  inp = readlines(io) .|> codeunits |> stack |> permutedims
   println("Part 1: ", part1a(inp, CartesianIndex(1, 1), CartesianIndex(0, 1)))
   println("Part 2: ", maximum(((x, dx),) -> part1a(inp, x, dx), borders(size(inp))))
 end
@@ -106,6 +83,56 @@ end
 
 ``` title="output day 16"
 {% include "day16.txt" %}
+```
+
+## Speeding up
+The above code is quite slow. I managed to speed it up by using recursion. The `loop` function takes `f` and `v` as static input arguments, but this is five times faster than using a closure.
+
+``` {.julia #day16}
+function loop(f, v, x, dx)
+  # Having these constants outside the loop function DOUBLES the runtime
+  DOT, HYPHEN, VBAR, SLASH, BACKSLASH = codeunits(".-|/\\")
+
+  !checkbounds(Bool, f, x) && return
+  v[x] & dirmap(dx) != 0 && return
+  v[x] |= dirmap(dx)
+  if f[x] == DOT || (f[x] == HYPHEN && dx[1] == 0) || (f[x] == VBAR && dx[2] == 0)
+    loop(f, v, x + dx, dx)
+  elseif f[x] == SLASH
+    loop(f, v, x - swap(dx), -swap(dx))
+  elseif f[x] == BACKSLASH
+    loop(f, v, x + swap(dx), swap(dx))
+  else
+    loop(f, v, x + swap(dx), swap(dx))
+    loop(f, v, x - swap(dx), -swap(dx))
+  end
+end
+
+function part1a(inp, x, dx)
+  dirs = zeros(UInt8, size(inp)...)
+  loop(inp, dirs, x, dx)
+  sum(dirs .!= 0)
+end
+```
+
+??? "Run benchmark"
+
+    ``` {.julia .task}
+    #| creates: output/day16-julia.txt
+    #| requires: src/Day16.jl input/day16.txt
+    #| collect: benchmarks
+    using BenchmarkTools
+    using AOC2023.Day16: part1a, borders
+
+    inp = open(readlines, "input/day16.txt", "r") .|> codeunits |> stack |> permutedims
+    open("output/day16-julia.txt", "w") do f_out
+        b = @benchmark maximum(((x, dx),) -> part1a(inp, x, dx), borders(size(inp)))
+        show(f_out, MIME("text/plain"), b)
+    end
+    ```
+
+``` title="benchmark Julia"
+{% include "day16-julia.txt" %}
 ```
 
 ## Rust implementation
@@ -184,7 +211,7 @@ Let's do this the right way: create a few structs and implement methods on top o
     }
     ```
 
-The rest of the implementation is a straight-forward translation of the Julia code into Rust. What is not so trivial is the performance improvement: the Rust code is more than 10 times faster.
+The rest of the implementation is a straight-forward translation of the Julia code into Rust. What is not so trivial is the performance improvement: the Rust code is more than two times faster.
 
 ??? "Run rust code"
 
@@ -193,7 +220,7 @@ The rest of the implementation is a straight-forward translation of the Julia co
     #| stdout: output/day16-rust.txt
     #| stdin: input/day16.txt
     #| requires: src/bin/day16.rs
-    #| collect: rust
+    #| collect: benchmarks
     cargo run --release --bin day16 < input/day16.txt
     ```
 
