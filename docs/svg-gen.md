@@ -181,7 +181,7 @@ Anything that is not a list is kept as is.
     (a               a)))
 ```
 
-Any `(import ...)` statements at the start are extracted and used to create the [environment](environment) in which the rest of the document is evaluated.
+Any `(import ...)` statements at the start are extracted and used to create the environment in which the rest of the document is evaluated.
 
 ``` {.scheme #main}
 (define (run code)
