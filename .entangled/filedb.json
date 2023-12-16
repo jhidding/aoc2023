@@ -16,11 +16,12 @@
         "docs/day05.md",
         "docs/day05.md",
         "docs/day08.md",
-        "docs/day10.md"
+        "docs/day10.md",
+        "docs/day16.md"
       ],
-      "modified": "2023-12-10T21:25:22.036132",
-      "hexdigest": "fa451bfece74adb430784e5d938277e4593ebb86dfe1a7af0805e03df1b65675",
-      "size": 5800
+      "modified": "2023-12-16T21:38:43.012907",
+      "hexdigest": "f76173ed6c9ed798798f7885067f3c99c2af75fec701a9201e88fc7e3bdeea29",
+      "size": 6355
     },
     {
       "path": "brei.toml",
@@ -379,48 +380,58 @@
     {
       "path": "docs/day16.md",
       "deps": null,
-      "modified": "2023-12-16T14:04:51.144753",
-      "hexdigest": "67854d887276d578ecff510a78cabde2205e300ff7d5bbd06e85df1713fa5947",
-      "size": 2296
+      "modified": "2023-12-16T21:53:24.270259",
+      "hexdigest": "24980a98f66492b78e57735be1860f4f878166a2147ffd5691ee68ecf8cff45f",
+      "size": 7899
     },
     {
       "path": "src/Day16.jl",
       "deps": [
         "docs/day16.md"
       ],
-      "modified": "2023-12-16T14:04:51.228753",
-      "hexdigest": "7dfe5d3e5d62530d164669ff92d640654ea5fa2fecaf33910b06c3691d2227e3",
-      "size": 1827
+      "modified": "2023-12-16T15:22:27.502630",
+      "hexdigest": "47f1cf298f255b3a3d718be178b53be9d55c703e3650fdaedcff9cb985416e29",
+      "size": 2467
+    },
+    {
+      "path": "src/bin/day16.rs",
+      "deps": [
+        "docs/day16.md"
+      ],
+      "modified": "2023-12-16T21:53:24.185258",
+      "hexdigest": "e1ec8ca864311fdfa59e29079786edd46425ec4261e411fb1c9819384a22a956",
+      "size": 4060
     }
   ],
   "source": [],
   "target": [
-    "examples/pythagoras.css",
+    "src/AOC2023.jl",
+    "src/viz-day05.scm",
     "src/Day11.jl",
     "src/Day13.jl",
-    "src/AOC2023.jl",
+    "src/Day16.jl",
+    "src/Day02.jl",
+    "src/Day04.jl",
+    "test/runtests.jl",
+    "xml-gen.scm",
+    "src/Day07.jl",
+    "src/Day05.jl",
+    "src/Day06.jl",
+    "src/Day08.jl",
     "src/Day14.jl",
+    "src/Day10.jl",
+    "src/Day09.jl",
+    "src/Day15.jl",
+    "src/day02.py",
+    "examples/pythagoras.css",
+    "src/Day12.jl",
+    "src/Parsing.jl",
+    "src/Day03.jl",
+    "examples/pythagoras.scm",
+    "src/bin/day01.rs",
+    "src/Day01.jl",
     "brei.toml",
     "src/viz-day10.jl",
-    "src/bin/day01.rs",
-    "src/Day07.jl",
-    "src/Day12.jl",
-    "test/runtests.jl",
-    "src/Day16.jl",
-    "src/day02.py",
-    "src/Parsing.jl",
-    "src/Day04.jl",
-    "src/Day15.jl",
-    "src/Day06.jl",
-    "src/Day05.jl",
-    "xml-gen.scm",
-    "examples/pythagoras.scm",
-    "src/Day08.jl",
-    "src/Day01.jl",
-    "src/Day02.jl",
-    "src/viz-day05.scm",
-    "src/Day10.jl",
-    "src/Day03.jl",
-    "src/Day09.jl"
+    "src/bin/day16.rs"
   ]
 }

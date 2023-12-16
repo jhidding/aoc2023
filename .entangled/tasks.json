@@ -89,6 +89,18 @@
       "path": "src/viz-day10.jl"
     },
     {
+      "description": "run rust day 16",
+      "creates": [],
+      "requires": [
+        "src/bin/day16.rs"
+      ],
+      "runner": "bash",
+      "stdout": "output/day16-rust.txt",
+      "stdin": "input/day16.txt",
+      "script": "#| description: run rust day 16\n#| stdout: output/day16-rust.txt\n#| stdin: input/day16.txt\n#| requires: src/bin/day16.rs\n#| collect: rust\ncargo run --release --bin day16 < input/day16.txt",
+      "path": null
+    },
+    {
       "name": "figures",
       "requires": [
         "docs/fig/day04-ncards.png",
@@ -96,6 +108,12 @@
         "docs/fig/day05-flow.svg",
         "docs/fig/viz-day08.svg",
         "docs/fig/day10.svg"
+      ]
+    },
+    {
+      "name": "rust",
+      "requires": [
+        "output/day16-rust.txt"
       ]
     }
   ]

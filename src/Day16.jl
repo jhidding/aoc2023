@@ -2,13 +2,13 @@
 module Day16
 
 # ~/~ begin <<docs/day16.md#day16>>[init]
-swap(i::CartesianIndex) = CartesianIndex(i[2], i[1])
+@inline swap(i::CartesianIndex) = CartesianIndex(i[2], i[1])
 split(i::CartesianIndex) = (swap(i), -swap(i))
 # ~/~ end
 # ~/~ begin <<docs/day16.md#day16>>[1]
-dirmap(i::CartesianIndex) = i[1] == 0 ?
-                            convert(UInt8, (i[2] + 3) >> 1) :
-                            convert(UInt8, (i[1] + 3) << 1)
+@inline dirmap(i::CartesianIndex) = i[1] == 0 ?
+                                    convert(UInt8, (i[2] + 3) >> 1) :
+                                    convert(UInt8, (i[1] + 3) << 1)
 # ~/~ end
 # ~/~ begin <<docs/day16.md#day16>>[2]
 where_to = Dict(
@@ -22,7 +22,7 @@ where_to = Dict(
 # ~/~ begin <<docs/day16.md#day16>>[3]
 function part1(inp, x=CartesianIndex(1, 1), dx=CartesianIndex(0, 1))
   stack = [(x, dx)]
-  dirs = zeros(Int, size(inp)...)
+  dirs = zeros(UInt8, size(inp)...)
 
   check(x, dx) = checkbounds(Bool, inp, x) && (dirs[x] & dirmap(dx) == 0)
 
@@ -44,6 +44,29 @@ function part1(inp, x=CartesianIndex(1, 1), dx=CartesianIndex(0, 1))
 
   sum(dirs .!= 0)
 end
+
+function part1a(inp, x, dx)
+  dirs = zeros(UInt8, size(inp)...)
+
+  function loop(x, dx)
+    !checkbounds(Bool, inp, x) && return
+    dirs[x] & dirmap(dx) != 0 && return
+    dirs[x] |= dirmap(dx)
+    if inp[x] == '.' || (inp[x] == '-' && dx[1] == 0) || (inp[x] == '|' && dx[2] == 0)
+      loop(x + dx, dx)
+    elseif inp[x] == '/'
+      loop(x - swap(dx), -swap(dx))
+    elseif inp[x] == '\\'
+      loop(x + swap(dx), swap(dx))
+    else
+      loop(x + swap(dx), swap(dx))
+      loop(x - swap(dx), -swap(dx))
+    end
+  end
+
+  loop(x, dx)
+  sum(dirs .!= 0)
+end
 # ~/~ end
 
 function borders(s)
@@ -56,8 +79,8 @@ end
 
 function main(io::IO)
   inp = readlines(io) .|> collect |> stack |> permutedims
-  println("Part 1: ", part1(inp))
-  println("Part 2: ", maximum(((x, dx),) -> part1(inp, x, dx), borders(size(inp))))
+  println("Part 1: ", part1a(inp, CartesianIndex(1, 1), CartesianIndex(0, 1)))
+  println("Part 2: ", maximum(((x, dx),) -> part1a(inp, x, dx), borders(size(inp))))
 end
 
 end
