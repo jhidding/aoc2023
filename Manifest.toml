@@ -2,7 +2,7 @@
 
 julia_version = "1.10.0-rc2"
 manifest_format = "2.0"
-project_hash = "70ea22691f123c508e7f99b94c55b7691b24cd36"
+project_hash = "10f3e8cd4802519c197532de022ce7de4c2315a7"
 
 [[deps.Adapt]]
 deps = ["LinearAlgebra", "Requires"]
@@ -99,6 +99,12 @@ version = "1.5.4"
 git-tree-sha1 = "8da84edb865b0b5b0100c0666a9bc9a0b71c553c"
 uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
 version = "1.15.0"
+
+[[deps.DataStructures]]
+deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
+git-tree-sha1 = "3dbd312d370723b6bb43ba9d02fc36abade4518d"
+uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+version = "0.18.15"
 
 [[deps.DataValueInterfaces]]
 git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"

@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-16T12:10:07.522145",
-      "hexdigest": "e8c0e727f87471ef672f4869fe49ae154dac0c0f00116a46f97240f8ea781990",
-      "size": 2589
+      "modified": "2023-12-16T23:52:55.271767",
+      "hexdigest": "a1fce02ac94eead37e53f4d916a233eaaa47d77c7eebe812383922363591e15a",
+      "size": 2621
     },
     {
       "path": ".entangled/tasks.json",
@@ -29,9 +29,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-16T12:10:07.451144",
-      "hexdigest": "72714165eb2b18d07de381b0b6d6e3208b3e8e64331ed1bacee175be0c8e5956",
-      "size": 1000
+      "modified": "2023-12-16T23:52:55.214766",
+      "hexdigest": "53ff8cf6d6606318c3e6ce162cbda973f9ab5b077845b8e2f99cd860e1f74963",
+      "size": 1008
     },
     {
       "path": "docs/day01.md",
@@ -54,9 +54,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-16T07:33:08.416360",
-      "hexdigest": "9ea7a7b9b9c4533deb817a4f18d3e515859e9e11ac4e56821dc069f6c1e2ccba",
-      "size": 425
+      "modified": "2023-12-16T23:52:41.959667",
+      "hexdigest": "818819dd091cebe5a15d80c83f5f433c08669613b29cef45ee953ba0ca81678b",
+      "size": 445
     },
     {
       "path": "test/runtests.jl",
@@ -402,6 +402,22 @@
       "modified": "2023-12-16T21:53:24.185258",
       "hexdigest": "e1ec8ca864311fdfa59e29079786edd46425ec4261e411fb1c9819384a22a956",
       "size": 4060
+    },
+    {
+      "path": "docs/day17.md",
+      "deps": null,
+      "modified": "2023-12-17T09:14:50.903709",
+      "hexdigest": "52c39a3efa3f562f8fe9596906daac512a894e1631310274bde76112f48d413c",
+      "size": 3371
+    },
+    {
+      "path": "src/Day17.jl",
+      "deps": [
+        "docs/day17.md"
+      ],
+      "modified": "2023-12-17T09:09:07.350457",
+      "hexdigest": "6e5cc25ad077eb886607e047389c0e712ca225b68bd1c59f4fde2f3f1dd043b4",
+      "size": 2496
     }
   ],
   "source": [],
@@ -427,6 +443,7 @@
     "examples/pythagoras.css",
     "src/Day12.jl",
     "src/Parsing.jl",
+    "src/Day17.jl",
     "src/Day03.jl",
     "examples/pythagoras.scm",
     "src/bin/day01.rs",
