@@ -46,7 +46,7 @@ function part1(inp, x=CartesianIndex(1, 1), dx=CartesianIndex(0, 1))
 end
 # ~/~ end
 # ~/~ begin <<docs/day16.md#day16>>[4]
-function loop(f, v, x, dx)
+function loop(f::Matrix{UInt8}, v::Matrix{UInt8}, x::CartesianIndex{2}, dx::CartesianIndex{2})
   # Having these constants outside the loop function DOUBLES the runtime
   DOT, HYPHEN, VBAR, SLASH, BACKSLASH = codeunits(".-|/\\")
 
@@ -65,7 +65,7 @@ function loop(f, v, x, dx)
   end
 end
 
-function part1a(inp, x, dx)
+function part1a(inp::Matrix{UInt8}, x::CartesianIndex{2}, dx::CartesianIndex{2})
   dirs = zeros(UInt8, size(inp)...)
   loop(inp, dirs, x, dx)
   sum(dirs .!= 0)

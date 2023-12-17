@@ -89,7 +89,7 @@ end
 The above code is quite slow. I managed to speed it up by using recursion. The `loop` function takes `f` and `v` as static input arguments, but this is five times faster than using a closure.
 
 ``` {.julia #day16}
-function loop(f, v, x, dx)
+function loop(f::Matrix{UInt8}, v::Matrix{UInt8}, x::CartesianIndex{2}, dx::CartesianIndex{2})
   # Having these constants outside the loop function DOUBLES the runtime
   DOT, HYPHEN, VBAR, SLASH, BACKSLASH = codeunits(".-|/\\")
 
@@ -108,7 +108,7 @@ function loop(f, v, x, dx)
   end
 end
 
-function part1a(inp, x, dx)
+function part1a(inp::Matrix{UInt8}, x::CartesianIndex{2}, dx::CartesianIndex{2})
   dirs = zeros(UInt8, size(inp)...)
   loop(inp, dirs, x, dx)
   sum(dirs .!= 0)

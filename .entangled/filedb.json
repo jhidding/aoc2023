@@ -17,12 +17,13 @@
         "docs/day05.md",
         "docs/day08.md",
         "docs/day10.md",
+        "docs/day17.md",
         "docs/day16.md",
         "docs/day16.md"
       ],
-      "modified": "2023-12-16T22:38:12.262969",
-      "hexdigest": "066c7b9372fc87669cf0b60355f577fb1c89b247e2daf021f6b521277ae130d7",
-      "size": 7119
+      "modified": "2023-12-17T19:44:58.561160",
+      "hexdigest": "bb67dc2103d0070fd5c6bb5eb801fde9ff5b9b57e0dfc1c72e231d507fa1ab31",
+      "size": 8441
     },
     {
       "path": "brei.toml",
@@ -381,18 +382,18 @@
     {
       "path": "docs/day16.md",
       "deps": null,
-      "modified": "2023-12-16T22:38:12.203969",
-      "hexdigest": "5f7b51be6fe4e2dc1665636bc2cd73b02d2212cf6de9c9b295bdcb02532c8a63",
-      "size": 8853
+      "modified": "2023-12-17T17:46:34.610261",
+      "hexdigest": "f2c46c0ad22e87eeb21934b43cfa47bf5e05f258b9a526629363fb8836588f89",
+      "size": 8974
     },
     {
       "path": "src/Day16.jl",
       "deps": [
         "docs/day16.md"
       ],
-      "modified": "2023-12-16T22:34:06.247989",
-      "hexdigest": "1f639ddbf665b7c6ff1b70f4493dbd19219bc0be35841c7eb69d66c8f9d886bb",
-      "size": 2660
+      "modified": "2023-12-17T17:46:34.548260",
+      "hexdigest": "a6e87b6d4b0627f1700547774eadb843e0381934bc55028d0aa3985d4567289e",
+      "size": 2781
     },
     {
       "path": "src/bin/day16.rs",
@@ -406,18 +407,18 @@
     {
       "path": "docs/day17.md",
       "deps": null,
-      "modified": "2023-12-17T09:14:50.903709",
-      "hexdigest": "52c39a3efa3f562f8fe9596906daac512a894e1631310274bde76112f48d413c",
-      "size": 3371
+      "modified": "2023-12-17T19:44:58.505160",
+      "hexdigest": "a445353d9a9be6a07c37c95b702ef445074d27763ee249a1b2c1d28c3877ec80",
+      "size": 4535
     },
     {
       "path": "src/Day17.jl",
       "deps": [
         "docs/day17.md"
       ],
-      "modified": "2023-12-17T09:09:07.350457",
-      "hexdigest": "6e5cc25ad077eb886607e047389c0e712ca225b68bd1c59f4fde2f3f1dd043b4",
-      "size": 2496
+      "modified": "2023-12-17T17:45:55.274965",
+      "hexdigest": "0d779d9194f85355ba8d5834a2679289b1118dcf246e8bf3225bb83d95549e8c",
+      "size": 2638
     }
   ],
   "source": [],

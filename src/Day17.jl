@@ -6,15 +6,19 @@ using DataStructures
 
 function grid_dijkstra(
   ::Type{T}, size::NTuple{Dim,Int},
-  start::CartesianIndex{Dim}, istarget::Function,
+  start::Vector{CartesianIndex{Dim}}, istarget::Function,
   neighbours::Function, dist_func::Function) where {T,Dim}
 
   visited = fill(false, size)
   distance = fill(typemax(T), size)
-  distance[start] = zero(T)
+  for s in start
+    distance[s] = zero(T)
+  end
   queue = PriorityQueue{CartesianIndex{Dim},T}()
   prev = Array{CartesianIndex{Dim},Dim}(undef, size)
-  enqueue!(queue, start, zero(T))
+  for s in start
+    enqueue!(queue, s, zero(T))
+  end
   current = nothing
   while !isempty(queue)
     current = dequeue!(queue)
@@ -32,6 +36,16 @@ function grid_dijkstra(
     visited[current] = true
   end
   (distance=distance, route=prev, target=current)
+end
+
+function trace_back(prev, start, target)
+  route = [target]
+  current = target
+  while current != start
+    current = prev[current]
+    pushfirst!(route, current)
+  end
+  route
 end
 # ~/~ end
 
@@ -70,17 +84,20 @@ function find_path(cost, jump, max_straight)
   # ~/~ begin <<docs/day17.md#day17>>[2]
   target(a) = (a[1], a[2]) == s
 
-  (dist1, _, _) = grid_dijkstra(Int, (s..., 4, max_straight), CartesianIndex(1, 1, 1, 1), target, neighbours, cost_fn)
-  (dist2, _, _) = grid_dijkstra(Int, (s..., 4, max_straight), CartesianIndex(1, 1, 2, 1), target, neighbours, cost_fn)
-
-  min(dist1[s..., :, :] |> minimum, dist2[s..., :, :] |> minimum)
+  grid_dijkstra(
+    Int, (s..., 4, max_straight),
+    [CartesianIndex(1, 1, 1, 1),
+      CartesianIndex(1, 1, 2, 1)],
+    target, neighbours, cost_fn)
   # ~/~ end
 end
 
 function main(io::IO)
   cost = readlines(io) .|> collect .|> (x -> x .- '0') |> stack
-  println("Part 1: ", find_path(cost, 1, 3))
-  println("Part 2: ", find_path(cost, 4, 10))
+  dist1, _, tgt1 = find_path(cost, 1, 3)
+  println("Part 1: ", dist1[tgt1])
+  dist2, _, tgt2 = find_path(cost, 4, 10)
+  println("Part 2: ", dist2[tgt2])
 end
 
 end
