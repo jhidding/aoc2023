@@ -1,4 +1,4 @@
-# Day 17
+# Day 17: Clumsy Crucible
 Shortest path usually means Dijkstra's algorithm, or some variant thereof. I copied my `grid_dijkstra` function from last year.
 
 ``` {.julia #grid-dijkstra}
