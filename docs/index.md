@@ -17,14 +17,15 @@ brei run
 
     [runner.julia]
     command = "julia"
-    args = [
-      "--project=workenv",
-      "--startup-file=no",
-      "-O0",
-      "-e",
-      "using DaemonMode; runargs()",
-      "${script}",
-    ]
+    args = ["--project=workenv", "${script}"]
+    # args = [
+    #   "--project=workenv",
+    #   "--startup-file=no",
+    #   "-O0",
+    #   "-e",
+    #   "using DaemonMode; runargs()",
+    #   "${script}",
+    # ]
 
     [[task]]
     name = "repl"
@@ -74,6 +75,7 @@ brei run
       "15",
       "16",
       "17",
+      "18",
     ]
     ```
 
@@ -116,6 +118,7 @@ include("Day14.jl")
 include("Day15.jl")
 include("Day16.jl")
 include("Day17.jl")
+include("Day18.jl")
 
 end
 ```

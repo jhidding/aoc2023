@@ -171,3 +171,30 @@ save("docs/fig/day17.png", fig)
 ```
 
 ![](fig/day17.png)
+
+## Rust implementation
+
+``` {.rust file=src/bin/day17.rs}
+use std::io;
+use ndarray::Array2;
+
+#[derive(Debug)]
+enum Error {
+    IO(io::Error),
+}
+
+fn main() -> Result<(), Error> {
+    let input: Vec<Vec<u8>> = io::stdin()
+        .lines()
+        .map(|s| Ok::<Vec<u8>, io::Error>(
+            s?.as_bytes().into_iter().map(|c| c - '0' as u8).collect()))
+        .collect::<Result<Vec<_>, _>>()
+        .map_err(Error::IO)?;
+    let w = input[0].len();
+    let h = input.len();
+
+    let cost = Array2::from_shape_vec((w, h), input.into_iter().flatten().collect());
+    println!("{:?}", cost);
+    Ok(())
+}
+```

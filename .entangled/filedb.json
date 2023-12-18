@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-16T23:52:55.271767",
-      "hexdigest": "a1fce02ac94eead37e53f4d916a233eaaa47d77c7eebe812383922363591e15a",
-      "size": 2621
+      "modified": "2023-12-18T12:59:45.343654",
+      "hexdigest": "ab0dcad2e36e800d15a948f23b0963dc679448c0aab9005f5397c9a1f6acec4a",
+      "size": 2715
     },
     {
       "path": ".entangled/tasks.json",
@@ -17,12 +17,12 @@
         "docs/day05.md",
         "docs/day08.md",
         "docs/day10.md",
-        "docs/day17.md",
         "docs/day16.md",
-        "docs/day16.md"
+        "docs/day16.md",
+        "docs/day17.md"
       ],
-      "modified": "2023-12-17T19:44:58.561160",
-      "hexdigest": "bb67dc2103d0070fd5c6bb5eb801fde9ff5b9b57e0dfc1c72e231d507fa1ab31",
+      "modified": "2023-12-17T22:01:15.307230",
+      "hexdigest": "7adaaa09982420ee8e8cde4c76ddbfa194ffe932e97df308feb2bca4d0810bd4",
       "size": 8441
     },
     {
@@ -30,9 +30,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-16T23:52:55.214766",
-      "hexdigest": "53ff8cf6d6606318c3e6ce162cbda973f9ab5b077845b8e2f99cd860e1f74963",
-      "size": 1008
+      "modified": "2023-12-18T12:59:45.114653",
+      "hexdigest": "6ab19aaefe09c36f06d3a170069d2f1d51b1e027a8b34a3e45c713bd868572f0",
+      "size": 1074
     },
     {
       "path": "docs/day01.md",
@@ -55,9 +55,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-16T23:52:41.959667",
-      "hexdigest": "818819dd091cebe5a15d80c83f5f433c08669613b29cef45ee953ba0ca81678b",
-      "size": 445
+      "modified": "2023-12-18T09:22:33.882169",
+      "hexdigest": "7745ae2513ea1955979103019d17c642cae2bc650c8f387402897d07edde9961",
+      "size": 465
     },
     {
       "path": "test/runtests.jl",
@@ -407,9 +407,9 @@
     {
       "path": "docs/day17.md",
       "deps": null,
-      "modified": "2023-12-17T19:44:58.505160",
-      "hexdigest": "a445353d9a9be6a07c37c95b702ef445074d27763ee249a1b2c1d28c3877ec80",
-      "size": 4535
+      "modified": "2023-12-18T09:20:40.083853",
+      "hexdigest": "b4feb1c1879a56e749ad76d22a808db3944ec139ef63e9c9057dc36d4d128e36",
+      "size": 5144
     },
     {
       "path": "src/Day17.jl",
@@ -419,6 +419,31 @@
       "modified": "2023-12-17T17:45:55.274965",
       "hexdigest": "0d779d9194f85355ba8d5834a2679289b1118dcf246e8bf3225bb83d95549e8c",
       "size": 2638
+    },
+    {
+      "path": "src/bin/day17.rs",
+      "deps": [
+        "docs/day17.md"
+      ],
+      "modified": "2023-12-18T09:20:40.159853",
+      "hexdigest": "e3a3b4ea8dfbedd52043887e554f3d5674bf3902644bdd93c9b54c0e12a9d779",
+      "size": 610
+    },
+    {
+      "path": "docs/day18.md",
+      "deps": null,
+      "modified": "2023-12-18T13:41:52.154469",
+      "hexdigest": "8e1087b4cab01fc42b1f3a5bfe091f7cb156f9e9a2df6002d234605c8f6dc673",
+      "size": 2413
+    },
+    {
+      "path": "src/Day18.jl",
+      "deps": [
+        "docs/day18.md"
+      ],
+      "modified": "2023-12-18T13:00:26.207774",
+      "hexdigest": "abaf3a61b7ddd4d75f48ed0b3376377bafe9a85e23426fc692785178c525558b",
+      "size": 1294
     }
   ],
   "source": [],
@@ -426,6 +451,7 @@
     "src/AOC2023.jl",
     "src/viz-day05.scm",
     "src/Day11.jl",
+    "src/bin/day17.rs",
     "src/Day13.jl",
     "src/Day16.jl",
     "src/Day02.jl",
@@ -443,6 +469,7 @@
     "src/day02.py",
     "examples/pythagoras.css",
     "src/Day12.jl",
+    "src/Day18.jl",
     "src/Parsing.jl",
     "src/Day17.jl",
     "src/Day03.jl",
