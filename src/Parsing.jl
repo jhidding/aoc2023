@@ -76,6 +76,7 @@ Base.:~(p::Parser) = optional_p(p)
 # ~/~ begin <<docs/day02.md#parsing>>[5]
 Base.:>>>(p1::Parser, p2::Parser) = p1 >> (_ -> p2)
 skip(p::Parser) = v -> (p >> (_ -> pure_p(v)))
+Base.:!(p::Parser) = skip(p)
 # ~/~ end
 # ~/~ begin <<docs/day02.md#parsing>>[6]
 function sequence(; xargs...)

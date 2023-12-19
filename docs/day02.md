@@ -185,6 +185,7 @@ The `>>>` operator binds two parsers, ignoring the result of the first one, whil
 ``` {.julia #parsing}
 Base.:>>>(p1::Parser, p2::Parser) = p1 >> (_ -> p2)
 skip(p::Parser) = v -> (p >> (_ -> pure_p(v)))
+Base.:!(p::Parser) = skip(p)
 ```
 
 We have two kinds of `sequence` combinators. These are used to put multiple parsers in sequence, either by positional arguments resulting in a `Vector` or keyword arguments resulting in a `Dict`.
