@@ -131,6 +131,21 @@
       "path": null
     },
     {
+      "description": null,
+      "creates": [
+        "docs/fig/day20.svg"
+      ],
+      "requires": [
+        "src/Day20.jl",
+        "input/day20.txt"
+      ],
+      "runner": "julia",
+      "stdout": null,
+      "stdin": null,
+      "script": "#| requires: src/Day20.jl input/day20.txt\n#| creates: docs/fig/day20.svg\n#| collect: figures\n\nusing GraphvizDotLang: digraph, subgraph, node, edge, save\nusing AOC2023.Day20: read_input, FlipFlop, Conjunction, Broadcaster\n\ninp = open(read_input, \"input/day20.txt\", \"r\")\n\ng = let\n\tg = digraph()\n\n\tsubs = IdDict(\n\t\t:broadcaster => subgraph(g, \"broadcaster\"),\n\t\t:hm => subgraph(g, \"cluster_hm\"; label=\"hm\", rank=\"min\"),\n\t\t:jc => subgraph(g, \"cluster_jc\"; label=\"jc\", rank=\"min\"),\n\t\t:pl => subgraph(g, \"cluster_pl\"; label=\"pl\", rank=\"min\"),\n\t\t:fd => subgraph(g, \"cluster_fd\"; label=\"fd\", rank=\"min\"),\n\t\t:cn => subgraph(g, \"cn\"; rank=\"sink\"))\n\t\n\tfor (k, v) in inp\n\t\tshape(::FlipFlop) = \"box\"\n\t\tshape(::Conjunction) = \"circle\"\n\t\tshape(::Broadcaster) = \"diamond\"\n\n\t\tif v isa Broadcaster\n\t\t\tg |> node(\"$$k\";shape=shape(v))\n\t\t\tfor l in v.destinations\n\t\t\t\tg |> edge(\"$$k\", \"$$l\")\n\t\t\tend\n\t\t\tcontinue\n\t\tend\n\t\t\t\n\t\tgrp = (v.sources \u222a v.destinations \u222a [k]) \u2229 keys(subs)\n\t\tsub = isempty(grp) ? g : subs[first(grp)]\n\t\t\n\t\tsub |> node(\"$$k\";shape=shape(v))\n\t\tfor l in v.destinations\n\t\t\tsub |> edge(\"$$k\", \"$$l\")\n\t\tend\n\tend\n\tg\nend\n\nsave(g, \"docs/fig/day20.svg\")",
+      "path": null
+    },
+    {
       "name": "figures",
       "requires": [
         "docs/fig/day04-ncards.png",
@@ -138,7 +153,8 @@
         "docs/fig/day05-flow.svg",
         "docs/fig/viz-day08.svg",
         "docs/fig/day10.svg",
-        "docs/fig/day17.png"
+        "docs/fig/day17.png",
+        "docs/fig/day20.svg"
       ]
     },
     {

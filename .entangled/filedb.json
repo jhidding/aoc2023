@@ -4,9 +4,9 @@
     {
       "path": "docs/index.md",
       "deps": null,
-      "modified": "2023-12-19T15:54:17.579998",
-      "hexdigest": "b770424b2b434baa92a2320a8ed2dc920ee9246753845a5486a20111c8614235",
-      "size": 2747
+      "modified": "2023-12-20T10:36:10.313527",
+      "hexdigest": "31cc3d0e2c2facbcd92519616a8ac175bfe6dc36107590f95abda5006212e111",
+      "size": 2767
     },
     {
       "path": ".entangled/tasks.json",
@@ -19,11 +19,12 @@
         "docs/day10.md",
         "docs/day16.md",
         "docs/day16.md",
-        "docs/day17.md"
+        "docs/day17.md",
+        "docs/day20.md"
       ],
-      "modified": "2023-12-17T22:01:15.307230",
-      "hexdigest": "7adaaa09982420ee8e8cde4c76ddbfa194ffe932e97df308feb2bca4d0810bd4",
-      "size": 8441
+      "modified": "2023-12-20T15:47:21.395165",
+      "hexdigest": "d08eb3591b9ccbc160446bedd68e467b6e1303327785db88a42cdf932468b945",
+      "size": 10069
     },
     {
       "path": "brei.toml",
@@ -55,9 +56,9 @@
       "deps": [
         "docs/index.md"
       ],
-      "modified": "2023-12-19T15:54:05.348931",
-      "hexdigest": "543e5bb3f65eb8635ae9900411d2522dc413c122b4b9f405aa35cb7b4b0607ea",
-      "size": 485
+      "modified": "2023-12-20T10:36:10.087530",
+      "hexdigest": "c8bfb3b20562a29e32573b0e060f6faec8e8e6e1d2c244ebc6859c54d19319cb",
+      "size": 505
     },
     {
       "path": "test/runtests.jl",
@@ -460,6 +461,22 @@
       "modified": "2023-12-19T16:03:33.096037",
       "hexdigest": "4058356870ca0b5b3812f664323e6dc794c42f3b0b06ddad42392a2b5e504840",
       "size": 4261
+    },
+    {
+      "path": "docs/day20.md",
+      "deps": null,
+      "modified": "2023-12-20T15:47:21.181163",
+      "hexdigest": "e2ab7e0a4200e4a1692ac4097356ec69c162d4137a47fe3d557998accb047c0e",
+      "size": 4580
+    },
+    {
+      "path": "src/Day20.jl",
+      "deps": [
+        "docs/day20.md"
+      ],
+      "modified": "2023-12-20T14:59:56.962522",
+      "hexdigest": "e666831c3d2346e7d433bfe9ed48621a40c542bffb56014aabef63c56fe6edce",
+      "size": 3383
     }
   ],
   "source": [],
@@ -491,6 +508,7 @@
     "src/Day17.jl",
     "src/Day03.jl",
     "examples/pythagoras.scm",
+    "src/Day20.jl",
     "src/bin/day01.rs",
     "src/Day01.jl",
     "brei.toml",
