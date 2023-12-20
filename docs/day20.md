@@ -2,40 +2,53 @@
 
 ![](fig/day20.svg)
 
-``` {.julia file=src/Day20.jl}
-module Day20
+## Data
 
-using ..Parsing: sequence, token, fmap, sep_by_p, many_p
-
+``` {.julia #day20}
 abstract type Module end
+
 mutable struct FlipFlop <: Module
   name::Symbol
   destinations::Vector{Symbol}
   sources::Vector{Symbol}
   state::Bool
 end
+
 FlipFlop(n::Symbol, d::Vector{Symbol}) = FlipFlop(n, d, [], false)
+
 mutable struct Conjunction <: Module
   name::Symbol
   destinations::Vector{Symbol}
   sources::Vector{Symbol}
   memory::IdDict{Symbol,Bool}
 end
+
 Conjunction(n::Symbol, d::Vector{Symbol}) = Conjunction(n, d, [], IdDict())
+
 struct Broadcaster <: Module
   name::Symbol
   destinations::Vector{Symbol}
 end
+```
 
-input_p = let
-  symbol = token(r"[a-z]+") >> fmap(m -> Symbol(m.match))
-  destinations = token("->") >>> sep_by_p(symbol, token(",")) >> fmap(Vector{Symbol})
-  flip_flop = sequence(token("%") >>> symbol, destinations) >> fmap(splat(FlipFlop))
-  conjunction = sequence(token("&") >>> symbol, destinations) >> fmap(splat(Conjunction))
-  broadcaster = sequence(token("broadcaster") >> fmap(Symbol), destinations) >> fmap(splat(Broadcaster))
-  flip_flop | conjunction | broadcaster
-end
+??? "Parsing"
 
+    ``` {.julia #day20}
+    using ..Parsing: sequence, token, fmap, sep_by_p, many_p
+
+    input_p = let
+      symbol = token(r"[a-z]+") >> fmap(m -> Symbol(m.match))
+      destinations = token("->") >>> sep_by_p(symbol, token(",")) >> fmap(Vector{Symbol})
+      flip_flop = sequence(token("%") >>> symbol, destinations) >> fmap(splat(FlipFlop))
+      conjunction = sequence(token("&") >>> symbol, destinations) >> fmap(splat(Conjunction))
+      broadcaster = sequence(token("broadcaster") >> fmap(Symbol), destinations) >> fmap(splat(Broadcaster))
+      flip_flop | conjunction | broadcaster
+    end
+    ```
+
+To initialize the data, we need to feed each module with the sources.
+
+``` {.julia #day20}
 function handshake(m::FlipFlop, src::Symbol)
   push!(m.sources, src)
 end
@@ -57,7 +70,12 @@ end
 
 function reset(::Broadcaster)
 end
+```
 
+## The machine
+I like to encapsulate things, but Julia doesn't have OOP. Instead, I create a few functions with a common closure. The `callback` argument is called for every send operation so that we can track operations.
+
+``` {.julia #day20}
 function machine(inp, callback)
   queue = []
 
@@ -98,7 +116,13 @@ function machine(inp, callback)
 
   return (send, run)
 end
+```
 
+An alternate way to implement this in Julia could be the use of `Channel`, possibly one for every module.
+
+## Part 1
+
+``` {.julia #day20}
 function part1(inp, n=1000)
   highs = 0
   lows = 0
@@ -117,7 +141,11 @@ function part1(inp, n=1000)
 
   highs * lows
 end
+```
 
+## Part 2
+
+``` {.julia #day20}
 function part2(inp)
   count = 0
   periods = IdDict(
@@ -143,6 +171,14 @@ function part2(inp)
 
   periods |> values |> splat(lcm)
 end
+```
+
+## Main
+
+``` {.julia file=src/Day20.jl}
+module Day20
+
+<<day20>>
 
 function read_input(io::IO)
   inp = IdDict((m.name => m) for m in readlines(io) .|> (first ∘ input_p))
